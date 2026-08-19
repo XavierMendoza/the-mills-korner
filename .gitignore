@@ -57,3 +57,7 @@ coverage.xml
 # Misc
 *.swp
 *.swo
+
+
+# Docker local secrets
+.env.docker
