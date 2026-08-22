@@ -22,4 +22,5 @@ urlpatterns = [
     path('api/v1/public/', include('content.urls')),
     path('api/v1/public/', include('impact.urls')),
     path('api/v1/public/', include('events.urls')),
+    path('api/v1/public/', include('engagement.urls')),
 ]
