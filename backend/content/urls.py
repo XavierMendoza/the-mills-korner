@@ -4,8 +4,21 @@ from .views import (
     OpportunityAreaDetailView,
     OpportunityAreaListView,
     PartnerListView,
+    StaffOpportunityAreaViewSet,
     StoryDetailView,
     StoryListView,
+)
+
+staff_opportunity_area_list = StaffOpportunityAreaViewSet.as_view(
+    {"get": "list", "post": "create"}
+)
+staff_opportunity_area_detail = StaffOpportunityAreaViewSet.as_view(
+    {
+        "get": "retrieve",
+        "put": "update",
+        "patch": "partial_update",
+        "delete": "destroy",
+    }
 )
 
 urlpatterns = [
@@ -18,4 +31,17 @@ urlpatterns = [
     path("stories/", StoryListView.as_view(), name="story-list"),
     path("stories/<slug:slug>/", StoryDetailView.as_view(), name="story-detail"),
     path("partners/", PartnerListView.as_view(), name="partner-list"),
+]
+
+staff_urlpatterns = [
+    path(
+        "opportunity-areas/",
+        staff_opportunity_area_list,
+        name="staff-opportunity-area-list",
+    ),
+    path(
+        "opportunity-areas/<int:pk>/",
+        staff_opportunity_area_detail,
+        name="staff-opportunity-area-detail",
+    ),
 ]

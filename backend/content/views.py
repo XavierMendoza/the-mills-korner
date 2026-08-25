@@ -1,8 +1,15 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.permissions import AllowAny
 
+from accounts.permissions import IsContentManagerOrSuperAdmin, IsInternalUser
+
 from .models import OpportunityArea, Partner, Story
-from .serializers import OpportunityAreaSerializer, PartnerSerializer, StorySerializer
+from .serializers import (
+    OpportunityAreaSerializer,
+    PartnerSerializer,
+    StaffOpportunityAreaSerializer,
+    StorySerializer,
+)
 
 
 class OpportunityAreaListView(generics.ListAPIView):
@@ -35,3 +42,16 @@ class PartnerListView(generics.ListAPIView):
     queryset = Partner.objects.filter(is_published=True)
     serializer_class = PartnerSerializer
     permission_classes = (AllowAny,)
+
+
+class StaffOpportunityAreaViewSet(viewsets.ModelViewSet):
+    queryset = OpportunityArea.objects.all()
+    serializer_class = StaffOpportunityAreaSerializer
+
+    def get_permissions(self):
+        if self.action in ("list", "retrieve"):
+            permission_classes = (IsInternalUser,)
+        else:
+            permission_classes = (IsContentManagerOrSuperAdmin,)
+
+        return [permission() for permission in permission_classes]
