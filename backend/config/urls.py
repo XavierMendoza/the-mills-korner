@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from content.urls import staff_urlpatterns as content_staff_urlpatterns
+from events.urls import staff_urlpatterns as events_staff_urlpatterns
 from impact.urls import staff_urlpatterns as impact_staff_urlpatterns
 
 urlpatterns = [
@@ -25,6 +26,7 @@ urlpatterns = [
     path('api/v1/auth/', include('accounts.urls')),
     path('api/v1/staff/', include(content_staff_urlpatterns)),
     path('api/v1/staff/', include(impact_staff_urlpatterns)),
+    path('api/v1/staff/', include(events_staff_urlpatterns)),
     path('api/v1/public/', include('content.urls')),
     path('api/v1/public/', include('impact.urls')),
     path('api/v1/public/', include('events.urls')),
