@@ -8,6 +8,7 @@ from .serializers import (
     OpportunityAreaSerializer,
     PartnerSerializer,
     StaffOpportunityAreaSerializer,
+    StaffStorySerializer,
     StorySerializer,
 )
 
@@ -55,3 +56,25 @@ class StaffOpportunityAreaViewSet(viewsets.ModelViewSet):
             permission_classes = (IsContentManagerOrSuperAdmin,)
 
         return [permission() for permission in permission_classes]
+
+
+class StaffStoryViewSet(viewsets.ModelViewSet):
+    queryset = Story.objects.all()
+    serializer_class = StaffStorySerializer
+
+    def get_permissions(self):
+        if self.action in ("list", "retrieve"):
+            permission_classes = (IsInternalUser,)
+        else:
+            permission_classes = (IsContentManagerOrSuperAdmin,)
+
+        return [permission() for permission in permission_classes]
+
+    def perform_create(self, serializer):
+        serializer.save(
+            created_by=self.request.user,
+            updated_by=self.request.user,
+        )
+
+    def perform_update(self, serializer):
+        serializer.save(updated_by=self.request.user)
