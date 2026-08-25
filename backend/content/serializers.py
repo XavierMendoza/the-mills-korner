@@ -96,3 +96,22 @@ class StaffStorySerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         )
+
+
+class StaffPartnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Partner
+        fields = (
+            "id",
+            "name",
+            "partner_type",
+            "logo",
+            "website_url",
+            "description",
+            "display_order",
+            "is_featured",
+            "is_published",
+            "created_at",
+            "updated_at",
+        )
+        read_only_fields = ("id", "created_at", "updated_at")

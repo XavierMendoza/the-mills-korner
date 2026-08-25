@@ -5,6 +5,7 @@ from .views import (
     OpportunityAreaListView,
     PartnerListView,
     StaffOpportunityAreaViewSet,
+    StaffPartnerViewSet,
     StaffStoryViewSet,
     StoryDetailView,
     StoryListView,
@@ -23,6 +24,15 @@ staff_opportunity_area_detail = StaffOpportunityAreaViewSet.as_view(
 )
 staff_story_list = StaffStoryViewSet.as_view({"get": "list", "post": "create"})
 staff_story_detail = StaffStoryViewSet.as_view(
+    {
+        "get": "retrieve",
+        "put": "update",
+        "patch": "partial_update",
+        "delete": "destroy",
+    }
+)
+staff_partner_list = StaffPartnerViewSet.as_view({"get": "list", "post": "create"})
+staff_partner_detail = StaffPartnerViewSet.as_view(
     {
         "get": "retrieve",
         "put": "update",
@@ -56,4 +66,6 @@ staff_urlpatterns = [
     ),
     path("stories/", staff_story_list, name="staff-story-list"),
     path("stories/<int:pk>/", staff_story_detail, name="staff-story-detail"),
+    path("partners/", staff_partner_list, name="staff-partner-list"),
+    path("partners/<int:pk>/", staff_partner_detail, name="staff-partner-detail"),
 ]
