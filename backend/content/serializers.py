@@ -65,3 +65,53 @@ class StaffOpportunityAreaSerializer(serializers.ModelSerializer):
             "updated_at",
         )
         read_only_fields = ("id", "created_at", "updated_at")
+
+
+class StaffStorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Story
+        fields = (
+            "id",
+            "title",
+            "slug",
+            "person_name",
+            "summary",
+            "before_story",
+            "transformation_story",
+            "current_story",
+            "featured_image",
+            "video_url",
+            "is_featured",
+            "is_published",
+            "published_at",
+            "created_by",
+            "updated_by",
+            "created_at",
+            "updated_at",
+        )
+        read_only_fields = (
+            "id",
+            "created_by",
+            "updated_by",
+            "created_at",
+            "updated_at",
+        )
+
+
+class StaffPartnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Partner
+        fields = (
+            "id",
+            "name",
+            "partner_type",
+            "logo",
+            "website_url",
+            "description",
+            "display_order",
+            "is_featured",
+            "is_published",
+            "created_at",
+            "updated_at",
+        )
+        read_only_fields = ("id", "created_at", "updated_at")
