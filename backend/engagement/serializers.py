@@ -59,3 +59,21 @@ class StaffInquirySerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
         )
+
+
+class StaffNewsletterSubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsletterSubscriber
+        fields = (
+            "id",
+            "email",
+            "is_active",
+            "subscribed_at",
+            "unsubscribed_at",
+        )
+        read_only_fields = (
+            "id",
+            "email",
+            "subscribed_at",
+            "unsubscribed_at",
+        )

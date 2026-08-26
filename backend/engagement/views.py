@@ -1,3 +1,4 @@
+from django.utils import timezone
 from rest_framework import generics, status, viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
@@ -10,6 +11,7 @@ from .serializers import (
     InquiryCreateSerializer,
     NewsletterSubscribeSerializer,
     StaffInquirySerializer,
+    StaffNewsletterSubscriberSerializer,
 )
 
 
@@ -62,3 +64,30 @@ class StaffInquiryViewSet(viewsets.ModelViewSet):
             permission_classes = (IsInternalUser,)
 
         return [permission() for permission in permission_classes]
+
+
+class StaffNewsletterSubscriberViewSet(viewsets.ModelViewSet):
+    queryset = NewsletterSubscriber.objects.all()
+    serializer_class = StaffNewsletterSubscriberSerializer
+    http_method_names = ("get", "put", "patch", "head", "options")
+
+    def get_permissions(self):
+        if self.action in ("update", "partial_update"):
+            permission_classes = (IsStaffUser,)
+        else:
+            permission_classes = (IsInternalUser,)
+
+        return [permission() for permission in permission_classes]
+
+    def perform_update(self, serializer):
+        if "is_active" not in serializer.validated_data:
+            serializer.save()
+            return
+
+        is_active = serializer.validated_data["is_active"]
+        if is_active == serializer.instance.is_active:
+            serializer.save()
+            return
+
+        unsubscribed_at = None if is_active else timezone.now()
+        serializer.save(unsubscribed_at=unsubscribed_at)
