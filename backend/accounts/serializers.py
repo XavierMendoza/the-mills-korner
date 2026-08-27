@@ -15,3 +15,7 @@ class CurrentUserSerializer(serializers.ModelSerializer):
             "is_staff",
         )
         read_only_fields = fields
+
+
+class LogoutSerializer(serializers.Serializer):
+    refresh = serializers.CharField(write_only=True)
