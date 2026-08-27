@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from core.validators import validate_image_upload
+
 
 class OpportunityArea(models.Model):
     title = models.CharField(max_length=150)
@@ -10,6 +12,7 @@ class OpportunityArea(models.Model):
     featured_image = models.ImageField(
         upload_to="opportunity_areas/",
         blank=True,
+        validators=[validate_image_upload],
     )
     display_order = models.PositiveIntegerField(default=0)
     is_published = models.BooleanField(default=False)
@@ -31,7 +34,11 @@ class Story(models.Model):
     before_story = models.TextField(blank=True)
     transformation_story = models.TextField()
     current_story = models.TextField(blank=True)
-    featured_image = models.ImageField(upload_to="stories/", blank=True)
+    featured_image = models.ImageField(
+        upload_to="stories/",
+        blank=True,
+        validators=[validate_image_upload],
+    )
     video_url = models.URLField(blank=True)
     is_featured = models.BooleanField(default=False)
     is_published = models.BooleanField(default=False)
@@ -71,7 +78,11 @@ class Partner(models.Model):
 
     name = models.CharField(max_length=200)
     partner_type = models.CharField(max_length=10, choices=PartnerType.choices)
-    logo = models.ImageField(upload_to="partners/", blank=True)
+    logo = models.ImageField(
+        upload_to="partners/",
+        blank=True,
+        validators=[validate_image_upload],
+    )
     website_url = models.URLField(blank=True)
     description = models.TextField(blank=True)
     display_order = models.PositiveIntegerField(default=0)

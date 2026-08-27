@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from core.validators import validate_image_upload
+
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
@@ -11,7 +13,11 @@ class Event(models.Model):
     address = models.CharField(max_length=300, blank=True)
     start_datetime = models.DateTimeField()
     end_datetime = models.DateTimeField()
-    featured_image = models.ImageField(upload_to="events/", blank=True)
+    featured_image = models.ImageField(
+        upload_to="events/",
+        blank=True,
+        validators=[validate_image_upload],
+    )
     registration_url = models.URLField(blank=True)
     is_featured = models.BooleanField(default=False)
     is_published = models.BooleanField(default=False)
