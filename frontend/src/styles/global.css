@@ -96,6 +96,35 @@ h1 { margin-bottom: var(--space-lg); font-size: clamp(2.25rem, 7vw, 4.75rem); le
 .event-row p { margin-bottom: 0; }
 .home-cta { display: flex; padding: clamp(3rem, 7vw, 6rem) max(1rem, calc((100% - var(--content-max-width)) / 2)); align-items: center; justify-content: space-between; gap: var(--space-xl); color: var(--color-ivory); background: var(--color-forest); }
 .home-cta h2 { color: var(--color-white); }
+.page-hero { padding: clamp(4rem, 9vw, 8rem) max(1rem, calc((100% - var(--content-max-width)) / 2)); border-bottom: 1px solid var(--color-border); background: var(--color-forest-dark); }
+.page-hero__inner { max-width: 54rem; }
+.page-hero h1 { color: var(--color-white); }
+.page-hero__inner > p:last-child { max-width: 45rem; color: var(--color-ivory); font-size: clamp(1.1rem, 2vw, 1.4rem); }
+.content-section { padding: clamp(3.5rem, 8vw, 7rem) max(1rem, calc((100% - var(--content-max-width)) / 2)); }
+.content-section--tinted { background: #f1eadb; }
+.prose-layout { display: grid; grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr); gap: clamp(2rem, 7vw, 7rem); }
+.prose-layout h2, .page-cta h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+.prose { font-size: 1.15rem; }
+.value-grid, .resource-grid, .partner-page-grid, .public-metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+.value-grid article, .partner-page-grid article, .public-metric-grid article { padding: var(--space-xl); border-top: 3px solid var(--color-gold); background: var(--color-white); }
+.page-cta { display: flex; padding: clamp(3rem, 7vw, 6rem) max(1rem, calc((100% - var(--content-max-width)) / 2)); align-items: center; justify-content: space-between; gap: var(--space-xl); border-top: 1px solid var(--color-border); }
+.resource-card { overflow: hidden; border: 1px solid var(--color-border); background: var(--color-white); box-shadow: 0 0.8rem 2rem rgba(41, 45, 43, 0.07); }
+.resource-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.resource-card > div { padding: var(--space-lg); }
+.resource-card h2 { margin-bottom: var(--space-sm); font-size: 1.5rem; }
+.resource-card a, .partner-page-grid a { font-weight: 750; }
+.resource-card time { display: block; margin-bottom: var(--space-sm); color: var(--color-forest); font-weight: 750; }
+.detail-hero-image { display: block; width: 100%; max-height: 36rem; object-fit: cover; }
+.detail-header { padding: clamp(3.5rem, 8vw, 7rem) max(1rem, calc((100% - 60rem) / 2)); background: var(--color-forest-dark); }
+.detail-header h1 { color: var(--color-white); }
+.detail-header > p:last-child { color: var(--color-ivory); font-size: 1.25rem; }
+.detail-prose { max-width: 60rem; margin-inline: auto; font-size: 1.12rem; }
+.detail-prose section { margin-bottom: var(--space-xl); }
+.partner-page-grid img { display: block; max-width: 10rem; max-height: 5rem; margin-bottom: var(--space-lg); object-fit: contain; }
+.event-details { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0 0 var(--space-xl); border-top: 1px solid var(--color-border); }
+.event-details div { padding: var(--space-md) 0; border-bottom: 1px solid var(--color-border); }
+.event-details dt { color: var(--color-gold); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; }
+.event-details dd { margin: 0; }
 .staff-page { display: grid; min-height: 100vh; padding: var(--space-lg); place-items: center; background: var(--color-forest-dark); }
 .staff-panel { width: min(100%, 34rem); padding: var(--space-xl); border-top: 4px solid var(--color-gold); border-radius: 0.25rem; background: var(--color-white); box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.24); }
 .staff-panel h1 { font-size: clamp(2rem, 6vw, 3rem); }
@@ -109,4 +138,7 @@ h1 { margin-bottom: var(--space-lg); font-size: clamp(2.25rem, 7vw, 4.75rem); le
   .editorial-grid, .story-grid { grid-template-columns: 1fr; }
   .event-row { grid-template-columns: 1fr; gap: var(--space-sm); }
   .section-heading--split, .home-cta { align-items: flex-start; flex-direction: column; }
+  .prose-layout, .value-grid, .resource-grid, .partner-page-grid, .public-metric-grid { grid-template-columns: 1fr; }
+  .page-cta { align-items: flex-start; flex-direction: column; }
+  .event-details { grid-template-columns: 1fr; }
 }
