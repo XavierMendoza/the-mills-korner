@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -9,6 +10,7 @@ from .models import User
 
 class AuthenticationAPITests(APITestCase):
     def setUp(self):
+        cache.clear()
         self.password = "Test-only-password-123!"
         self.user = User.objects.create_user(
             email="auth-user@example.com",
@@ -21,6 +23,10 @@ class AuthenticationAPITests(APITestCase):
         self.token_refresh_url = reverse("token-refresh")
         self.logout_url = reverse("logout")
         self.me_url = reverse("current-user")
+
+    def tearDown(self):
+        cache.clear()
+        super().tearDown()
 
     def login(self, user, password):
         response = self.client.post(
@@ -197,3 +203,79 @@ class AuthenticationAPITests(APITestCase):
             format="json",
         )
         self.assertEqual(refresh_response.status_code, status.HTTP_200_OK)
+
+
+class LoginThrottleAPITests(APITestCase):
+    client_ip = "198.51.100.25"
+
+    def setUp(self):
+        cache.clear()
+        self.password = "Throttle-test-password-123!"
+        self.user = User.objects.create_user(
+            email="throttle-user@example.com",
+            password=self.password,
+            role=User.Role.STAFF,
+        )
+        self.token_url = reverse("token-obtain-pair")
+
+    def tearDown(self):
+        cache.clear()
+        super().tearDown()
+
+    def failed_login(self):
+        return self.client.post(
+            self.token_url,
+            {"email": self.user.email, "password": "Incorrect-test-password"},
+            format="json",
+            REMOTE_ADDR=self.client_ip,
+        )
+
+    def test_repeated_failed_login_is_throttled_after_five_attempts(self):
+        first_five_responses = [self.failed_login() for _ in range(5)]
+        sixth_response = self.failed_login()
+
+        self.assertEqual(
+            [response.status_code for response in first_five_responses],
+            [status.HTTP_401_UNAUTHORIZED] * 5,
+        )
+        self.assertEqual(
+            sixth_response.status_code,
+            status.HTTP_429_TOO_MANY_REQUESTS,
+        )
+        self.assertEqual(
+            AuditLog.objects.filter(action=AuditLog.Action.LOGIN_FAILED).count(),
+            5,
+        )
+
+    def test_correct_login_is_throttled_after_failed_attempts_exhaust_limit(self):
+        failed_responses = [self.failed_login() for _ in range(5)]
+        correct_response = self.client.post(
+            self.token_url,
+            {"email": self.user.email, "password": self.password},
+            format="json",
+            REMOTE_ADDR=self.client_ip,
+        )
+
+        self.assertEqual(
+            [response.status_code for response in failed_responses],
+            [status.HTTP_401_UNAUTHORIZED] * 5,
+        )
+        self.assertEqual(
+            correct_response.status_code,
+            status.HTTP_429_TOO_MANY_REQUESTS,
+        )
+        self.assertEqual(
+            AuditLog.objects.filter(action=AuditLog.Action.LOGIN_FAILED).count(),
+            5,
+        )
+        self.assertFalse(AuditLog.objects.filter(action=AuditLog.Action.LOGIN).exists())
+
+    def test_login_throttle_cache_starts_empty(self):
+        response = self.client.post(
+            self.token_url,
+            {"email": self.user.email, "password": self.password},
+            format="json",
+            REMOTE_ADDR=self.client_ip,
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)

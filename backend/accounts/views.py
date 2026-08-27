@@ -3,6 +3,7 @@ from rest_framework import status
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.throttling import ScopedRateThrottle
 from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.settings import api_settings
@@ -17,6 +18,9 @@ from .serializers import CurrentUserSerializer, LogoutSerializer
 
 
 class AuditedTokenObtainPairView(TokenObtainPairView):
+    throttle_classes = (ScopedRateThrottle,)
+    throttle_scope = "auth_login"
+
     def get_serializer(self, *args, **kwargs):
         serializer = super().get_serializer(*args, **kwargs)
         if "data" in kwargs:
