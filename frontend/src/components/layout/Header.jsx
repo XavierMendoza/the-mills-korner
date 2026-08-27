@@ -7,7 +7,7 @@ const navigationItems = [
   ['Stories', '/stories'],
   ['Partners', '/partners'],
   ['Events', '/events'],
-  ['Get Involved', '/get-involved'],
+  ['Get Involved', '/get-involved', true],
   ['Contact', '/contact'],
 ]
 
@@ -20,11 +20,15 @@ function Header() {
         </NavLink>
         <nav aria-label="Primary navigation">
           <ul className="site-nav">
-            {navigationItems.map(([label, to]) => (
+            {navigationItems.map(([label, to, isCta]) => (
               <li key={to}>
                 <NavLink
                   className={({ isActive }) =>
-                    isActive ? 'site-nav__link site-nav__link--active' : 'site-nav__link'
+                    [
+                      'site-nav__link',
+                      isActive && 'site-nav__link--active',
+                      isCta && 'site-nav__link--cta',
+                    ].filter(Boolean).join(' ')
                   }
                   to={to}
                 >

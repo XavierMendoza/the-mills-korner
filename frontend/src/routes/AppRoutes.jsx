@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
 
 import PublicLayout from '../components/layout/PublicLayout.jsx'
+import HomePage from '../pages/public/HomePage.jsx'
 import PublicPlaceholderPage from '../pages/public/PublicPlaceholderPage.jsx'
 import StaffPlaceholderPage from '../pages/staff/StaffPlaceholderPage.jsx'
 
 const publicRoutes = [
-  ['/', 'Welcome to The Mills Korner', 'A foundation for opportunity, connection, and lasting impact.'],
   ['/about', 'About', 'Learn about our mission and community.'],
   ['/impact', 'Our Impact', 'See the difference our community is making.'],
   ['/opportunity', 'Opportunity Areas', 'Explore the areas where we serve and invest.'],
@@ -23,6 +23,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route element={<PublicLayout />}>
+        <Route path="/" element={<HomePage />} />
         {publicRoutes.map(([path, title, description]) => (
           <Route
             key={path}
