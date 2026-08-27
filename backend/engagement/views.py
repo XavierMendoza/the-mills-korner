@@ -3,6 +3,7 @@ from django.utils import timezone
 from rest_framework import generics, status, viewsets
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+from rest_framework.throttling import ScopedRateThrottle
 from rest_framework.views import APIView
 
 from accounts.permissions import IsInternalUser, IsStaffUser
@@ -22,10 +23,14 @@ class InquiryCreateView(generics.CreateAPIView):
     queryset = Inquiry.objects.all()
     serializer_class = InquiryCreateSerializer
     permission_classes = (AllowAny,)
+    throttle_classes = (ScopedRateThrottle,)
+    throttle_scope = "public_inquiry"
 
 
 class NewsletterSubscribeView(APIView):
     permission_classes = (AllowAny,)
+    throttle_classes = (ScopedRateThrottle,)
+    throttle_scope = "public_newsletter"
 
     def post(self, request):
         serializer = NewsletterSubscribeSerializer(data=request.data)
