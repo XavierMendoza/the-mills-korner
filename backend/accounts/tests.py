@@ -18,7 +18,18 @@ class AuthenticationAPITests(APITestCase):
             role=User.Role.STAFF,
         )
         self.token_url = reverse("token-obtain-pair")
+        self.token_refresh_url = reverse("token-refresh")
+        self.logout_url = reverse("logout")
         self.me_url = reverse("current-user")
+
+    def login(self, user, password):
+        response = self.client.post(
+            self.token_url,
+            {"email": user.email, "password": password},
+            format="json",
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        return response.data
 
     def test_jwt_login_success_returns_tokens_and_logs_login(self):
         response = self.client.post(
@@ -97,3 +108,92 @@ class AuthenticationAPITests(APITestCase):
         self.assertEqual(response.data["email"], self.user.email)
         self.assertNotIn("password", response.data)
         self.assertNotIn("is_superuser", response.data)
+
+    def test_refresh_rotation_invalidates_old_token_and_keeps_new_token_usable(self):
+        login_data = self.login(self.user, self.password)
+        refresh_token_a = login_data["refresh"]
+
+        rotate_response = self.client.post(
+            self.token_refresh_url,
+            {"refresh": refresh_token_a},
+            format="json",
+        )
+
+        self.assertEqual(rotate_response.status_code, status.HTTP_200_OK)
+        self.assertIn("access", rotate_response.data)
+        self.assertIn("refresh", rotate_response.data)
+        refresh_token_b = rotate_response.data["refresh"]
+
+        reuse_response = self.client.post(
+            self.token_refresh_url,
+            {"refresh": refresh_token_a},
+            format="json",
+        )
+        self.assertEqual(reuse_response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+        new_token_response = self.client.post(
+            self.token_refresh_url,
+            {"refresh": refresh_token_b},
+            format="json",
+        )
+        self.assertEqual(new_token_response.status_code, status.HTTP_200_OK)
+
+    def test_logout_blacklists_refresh_token_and_logs_logout(self):
+        login_data = self.login(self.user, self.password)
+        access_token = login_data["access"]
+        refresh_token = login_data["refresh"]
+        self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {access_token}")
+
+        logout_response = self.client.post(
+            self.logout_url,
+            {"refresh": refresh_token},
+            format="json",
+        )
+
+        self.assertEqual(logout_response.status_code, status.HTTP_200_OK)
+        reuse_response = self.client.post(
+            self.token_refresh_url,
+            {"refresh": refresh_token},
+            format="json",
+        )
+        self.assertEqual(reuse_response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+        logout_logs = AuditLog.objects.filter(
+            action=AuditLog.Action.LOGOUT,
+            user=self.user,
+        )
+        self.assertEqual(logout_logs.count(), 1)
+        logout_log = logout_logs.get()
+        self.assertIsNone(logout_log.old_values)
+        self.assertIsNone(logout_log.new_values)
+
+    def test_user_cannot_logout_another_users_refresh_token(self):
+        second_password = "Second-user-test-password-123!"
+        second_user = User.objects.create_user(
+            email="second-auth-user@example.com",
+            password=second_password,
+            role=User.Role.STAFF,
+        )
+        first_login = self.login(self.user, self.password)
+        second_login = self.login(second_user, second_password)
+        self.client.credentials(
+            HTTP_AUTHORIZATION=f"Bearer {first_login['access']}"
+        )
+
+        logout_response = self.client.post(
+            self.logout_url,
+            {"refresh": second_login["refresh"]},
+            format="json",
+        )
+
+        self.assertEqual(logout_response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertFalse(
+            AuditLog.objects.filter(action=AuditLog.Action.LOGOUT).exists()
+        )
+
+        refresh_response = self.client.post(
+            self.token_refresh_url,
+            {"refresh": second_login["refresh"]},
+            format="json",
+        )
+        self.assertEqual(refresh_response.status_code, status.HTTP_200_OK)
