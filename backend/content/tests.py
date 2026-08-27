@@ -1,5 +1,7 @@
+import warnings
 from io import BytesIO
 from tempfile import TemporaryDirectory
+from unittest.mock import MagicMock, patch
 
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
@@ -10,7 +12,11 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 
 from accounts.models import User
-from core.validators import MAX_IMAGE_UPLOAD_SIZE, validate_image_upload
+from core.validators import (
+    MAX_IMAGE_PIXELS,
+    MAX_IMAGE_UPLOAD_SIZE,
+    validate_image_upload,
+)
 from events.models import Event
 from events.serializers import StaffEventSerializer
 
@@ -139,6 +145,82 @@ class StaffImageUploadValidationTests(APITestCase):
             validate_image_upload(upload)
 
         self.assertEqual(upload.tell(), 0)
+
+    def test_shared_validator_accepts_image_below_pixel_limit(self):
+        upload = self.image_upload("PNG", "within-dimensions.png")
+
+        validate_image_upload(upload)
+
+        self.assertEqual(MAX_IMAGE_PIXELS, 25_000_000)
+        self.assertEqual(upload.tell(), 0)
+
+    def test_shared_validator_rejects_image_above_pixel_limit_and_resets_pointer(
+        self,
+    ):
+        upload = SimpleUploadedFile(
+            "oversized-dimensions.jpg",
+            b"mocked image content",
+            content_type="image/jpeg",
+        )
+        image = MagicMock()
+        image.width = 5_001
+        image.height = 5_000
+        image.format = "JPEG"
+        image_context = MagicMock()
+        image_context.__enter__.return_value = image
+
+        with patch("core.validators.Image.open", return_value=image_context):
+            with self.assertRaisesMessage(
+                ValidationError,
+                "Image dimensions are too large.",
+            ):
+                validate_image_upload(upload)
+
+        image.verify.assert_not_called()
+        self.assertEqual(upload.tell(), 0)
+
+    @patch("core.validators.MAX_IMAGE_PIXELS", 63)
+    def test_staff_api_rejects_image_above_pixel_limit(self):
+        response = self.post_opportunity_area(
+            self.image_upload("PNG", "oversized-dimensions.png")
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertIn(
+            "Image dimensions are too large.",
+            response.data["featured_image"],
+        )
+
+    def test_decompression_bomb_conditions_use_safe_validation_error(self):
+        upload = SimpleUploadedFile(
+            "bomb.png",
+            b"mocked image content",
+            content_type="image/png",
+        )
+
+        def emit_decompression_warning(*args, **kwargs):
+            warnings.warn(
+                "Pillow decompression details must not leak.",
+                Image.DecompressionBombWarning,
+            )
+
+        bomb_conditions = (
+            emit_decompression_warning,
+            Image.DecompressionBombError("Pillow details must not leak."),
+        )
+        for bomb_condition in bomb_conditions:
+            with self.subTest(condition=type(bomb_condition).__name__):
+                upload.seek(0)
+                with patch(
+                    "core.validators.Image.open",
+                    side_effect=bomb_condition,
+                ):
+                    with self.assertRaisesMessage(
+                        ValidationError,
+                        "Image dimensions are too large.",
+                    ):
+                        validate_image_upload(upload)
+                self.assertEqual(upload.tell(), 0)
 
     def test_all_staff_serializer_image_fields_use_shared_validator(self):
         serializer_fields = (
