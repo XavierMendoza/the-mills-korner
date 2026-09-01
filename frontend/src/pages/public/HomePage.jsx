@@ -57,20 +57,25 @@ function HomePage() {
     <>
       <section className="home-hero">
         <div className="home-hero__content">
-          <p className="page-eyebrow">Community begins at the corner</p>
-          <h1>Opportunity changes everything.</h1>
+          <p className="page-eyebrow">The Mills Korner</p>
+          <h1>
+            Developing Leaders.<br />
+            Expanding Opportunity.<br />
+            Strengthening Communities.
+          </h1>
           <p className="home-hero__lead">
-            The Mills Korner connects people to pathways for growth, meaningful relationships,
-            and the collective strength of community.
+            The Mills Korner equips young people ages 10–22 with the relationships, skills,
+            and opportunities they need to build successful futures.
           </p>
           <div className="button-row">
-            <Link className="button button--primary" to="/opportunity">Explore opportunities</Link>
-            <Link className="button button--secondary" to="/get-involved">Get involved</Link>
+            <Link className="button button--primary" to="/get-involved">Become a Mentor</Link>
+            <Link className="button button--secondary" to="/get-involved">Partner With Us</Link>
+            <Link className="button button--secondary" to="/get-involved">Invest in a Future</Link>
           </div>
         </div>
         <aside className="home-hero__statement" aria-label="Our purpose">
-          <span>One place.</span>
-          <strong>Many paths forward.</strong>
+          <span>We don&apos;t define young people by where they begin.</span>
+          <strong>We prepare them for where they can go.</strong>
         </aside>
       </section>
 
@@ -95,7 +100,7 @@ function HomePage() {
 
       <section className="home-section">
         <div className="section-heading section-heading--split">
-          <div><p className="page-eyebrow">Where possibility grows</p><h2>Opportunity areas</h2></div>
+          <div><p className="page-eyebrow">Where possibility grows</p><h2>Opportunity, not programs.</h2></div>
           <Link className="text-link" to="/opportunity">View all opportunities →</Link>
         </div>
         <EmptyState state={data.opportunities} emptyMessage="Opportunity areas will be shared soon." />
@@ -117,7 +122,7 @@ function HomePage() {
           <div><p className="page-eyebrow">Community voices</p><h2>Stories of forward motion</h2></div>
           <Link className="text-link" to="/stories">All stories →</Link>
         </div>
-        <EmptyState state={data.stories} emptyMessage="Community stories are being gathered." />
+        <EmptyState state={data.stories} emptyMessage="Transformation stories will be shared with participant permission as they become available." />
         <div className="story-grid">
           {data.stories.items.slice(0, 3).map((story) => (
             <article className="story-card" key={story.id}>
@@ -134,7 +139,7 @@ function HomePage() {
           <div><p className="page-eyebrow">Stronger together</p><h2>Community partners</h2></div>
           <Link className="text-link" to="/partners">Meet our partners →</Link>
         </div>
-        <EmptyState state={data.partners} emptyMessage="Partner profiles will be available soon." />
+        <EmptyState state={data.partners} emptyMessage="Partner profiles will be shared here soon." />
         <div className="partner-grid">
           {data.partners.items.slice(0, 6).map((partner) => (
             <div className="partner" key={partner.id}>
@@ -150,7 +155,7 @@ function HomePage() {
           <div><p className="page-eyebrow">Gather with purpose</p><h2>Upcoming events</h2></div>
           <Link className="text-link" to="/events">View all events →</Link>
         </div>
-        <EmptyState state={data.events} emptyMessage="New events will be announced here." />
+        <EmptyState state={data.events} emptyMessage="Upcoming events will be announced here." />
         <div className="event-list">
           {data.events.items.slice(0, 3).map((event) => (
             <article className="event-row" key={event.id}>
@@ -163,7 +168,7 @@ function HomePage() {
       </section>
 
       <section className="home-cta">
-        <div><p className="page-eyebrow">Your place is here</p><h2>Help opportunity reach further.</h2></div>
+        <div><p className="page-eyebrow">Invest in Opportunity</p><h2>Help young people build successful futures.</h2></div>
         <Link className="button button--gold" to="/get-involved">Find your way to participate</Link>
       </section>
     </>

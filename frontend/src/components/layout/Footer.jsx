@@ -7,7 +7,7 @@ function Footer() {
       <div className="site-footer__inner">
         <div className="site-footer__brand">
           <strong>The Mills Korner</strong>
-          <p>A headquarters for opportunity, community, and connection.</p>
+          <p>Developing leaders. Expanding opportunity. Strengthening communities.</p>
         </div>
         <nav aria-label="Footer navigation">
           <Link to="/about">About</Link><Link to="/impact">Impact</Link>
