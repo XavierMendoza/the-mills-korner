@@ -1,0 +1,10 @@
+import { useCallback, useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { useAuth } from '../../auth/useAuth.js'
+import ContentTable from '../../components/staff/ContentTable.jsx'
+import { contentConfigs, writableRoles } from '../../components/staff/contentConfig.js'
+import { deleteContent, listContent } from '../../api/staffContent.js'
+import { staffError } from '../../utils/staffErrors.js'
+
+function StaffContentListPage() { const { type } = useParams(); const config = contentConfigs[type]; const { user, authenticatedRequest } = useAuth(); const canWrite = writableRoles.has(user.role); const [state, setState] = useState({ items: [], loading: true, error: '' }); const load = useCallback(() => { if (!config) return; listContent(authenticatedRequest, type).then((items) => setState({ items, loading: false, error: '' })).catch((error) => setState({ items: [], loading: false, error: staffError(error) })) }, [authenticatedRequest, config, type]); useEffect(load, [load]); if (!config) return <section className="staff-dashboard"><h1>Content not found</h1></section>; const remove = async (item) => { if (!window.confirm(`Delete “${item[config.titleField]}”? This cannot be undone.`)) return; try { await deleteContent(authenticatedRequest, type, item.id); setState((s) => ({ ...s, items: s.items.filter((row) => row.id !== item.id) })) } catch (error) { setState((s) => ({ ...s, error: staffError(error) })) } }; return <section className="staff-dashboard"><div className="staff-toolbar"><div><p className="page-eyebrow">Content</p><h1>{config.label}</h1></div>{canWrite && <Link className="button button--primary" to={`/staff/content/${type}/new`}>Add new</Link>}</div>{state.loading && <p role="status">Loading…</p>}{state.error && <p role="alert">{state.error}</p>}{!state.loading && !state.error && !state.items.length && <p>No records yet.</p>}{!!state.items.length && <ContentTable config={config} items={state.items} type={type} canWrite={canWrite} onDelete={remove} />}</section> }
+export default StaffContentListPage

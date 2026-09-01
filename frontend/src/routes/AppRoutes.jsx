@@ -15,6 +15,9 @@ import PartnersPage from '../pages/public/PartnersPage.jsx'
 import StoriesListPage from '../pages/public/StoriesListPage.jsx'
 import StoryDetailPage from '../pages/public/StoryDetailPage.jsx'
 import StaffDashboardPage from '../pages/staff/StaffDashboardPage.jsx'
+import StaffContentFormPage from '../pages/staff/StaffContentFormPage.jsx'
+import StaffContentListPage from '../pages/staff/StaffContentListPage.jsx'
+import StaffContentPage from '../pages/staff/StaffContentPage.jsx'
 import StaffLoginPage from '../pages/staff/StaffLoginPage.jsx'
 import ProtectedRoute from './ProtectedRoute.jsx'
 
@@ -39,6 +42,10 @@ function AppRoutes() {
       <Route element={<ProtectedRoute />}>
         <Route path="/staff" element={<StaffLayout />}>
           <Route index element={<StaffDashboardPage />} />
+          <Route path="content" element={<StaffContentPage />} />
+          <Route path="content/:type" element={<StaffContentListPage />} />
+          <Route path="content/:type/new" element={<StaffContentFormPage />} />
+          <Route path="content/:type/:id/edit" element={<StaffContentFormPage />} />
         </Route>
       </Route>
     </Routes>
