@@ -1,0 +1,10 @@
+import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { listInquiries } from '../../api/staffEngagement.js'
+import { useAuth } from '../../auth/useAuth.js'
+import { formatDate } from '../../utils/dates.js'
+import { staffError } from '../../utils/staffErrors.js'
+
+const filters = [['ALL', 'All'], ['NEW', 'New'], ['IN_REVIEW', 'In Review'], ['CONTACTED', 'Contacted'], ['CLOSED', 'Closed']]
+function StaffInquiriesPage() { const { authenticatedRequest } = useAuth(); const [filter, setFilter] = useState('ALL'); const [state, setState] = useState({ items: [], loading: true, error: '' }); useEffect(() => { listInquiries(authenticatedRequest).then((items) => setState({ items, loading: false, error: '' })).catch((error) => setState({ items: [], loading: false, error: staffError(error) })) }, [authenticatedRequest]); const items = filter === 'ALL' ? state.items : state.items.filter((item) => item.status === filter); return <section className="staff-dashboard"><p className="page-eyebrow">Engagement</p><h1>Inquiries</h1><div className="staff-filters" aria-label="Filter inquiries">{filters.map(([value, label]) => <button className={filter === value ? 'active' : ''} type="button" key={value} onClick={() => setFilter(value)}>{label}</button>)}</div>{state.loading && <p role="status">Loading…</p>}{state.error && <p role="alert">{state.error}</p>}{!state.loading && !state.error && !items.length && <p>No inquiries match this view.</p>}{!!items.length && <div className="staff-table-wrap"><table className="staff-table"><thead><tr><th>Name</th><th>Type</th><th>Email</th><th>Organization</th><th>Status</th><th>Submitted</th><th></th></tr></thead><tbody>{items.map((item) => <tr key={item.id}><td>{item.first_name} {item.last_name}</td><td>{item.inquiry_type}</td><td>{item.email}</td><td>{item.organization || '—'}</td><td>{item.status}</td><td>{formatDate(item.created_at)}</td><td><Link to={`/staff/inquiries/${item.id}`}>Manage</Link></td></tr>)}</tbody></table></div>}</section> }
+export default StaffInquiriesPage
