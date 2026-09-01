@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 
 import PublicLayout from '../components/layout/PublicLayout.jsx'
+import StaffLayout from '../components/staff/StaffLayout.jsx'
 import AboutPage from '../pages/public/AboutPage.jsx'
 import ContactPage from '../pages/public/ContactPage.jsx'
 import EventDetailPage from '../pages/public/EventDetailPage.jsx'
@@ -13,7 +14,9 @@ import OpportunityListPage from '../pages/public/OpportunityListPage.jsx'
 import PartnersPage from '../pages/public/PartnersPage.jsx'
 import StoriesListPage from '../pages/public/StoriesListPage.jsx'
 import StoryDetailPage from '../pages/public/StoryDetailPage.jsx'
-import StaffPlaceholderPage from '../pages/staff/StaffPlaceholderPage.jsx'
+import StaffDashboardPage from '../pages/staff/StaffDashboardPage.jsx'
+import StaffLoginPage from '../pages/staff/StaffLoginPage.jsx'
+import ProtectedRoute from './ProtectedRoute.jsx'
 
 function AppRoutes() {
   return (
@@ -32,8 +35,12 @@ function AppRoutes() {
         <Route path="/get-involved" element={<GetInvolvedPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Route>
-      <Route path="/staff/login" element={<StaffPlaceholderPage login />} />
-      <Route path="/staff" element={<StaffPlaceholderPage />} />
+      <Route path="/staff/login" element={<StaffLoginPage />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/staff" element={<StaffLayout />}>
+          <Route index element={<StaffDashboardPage />} />
+        </Route>
+      </Route>
     </Routes>
   )
 }
