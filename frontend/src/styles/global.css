@@ -180,6 +180,16 @@ h1 { margin-bottom: var(--space-lg); font-size: clamp(2.25rem, 7vw, 4.75rem); le
 .staff-content-form textarea, .staff-content-form label:has(textarea), .staff-content-form .button-row { grid-column: 1 / -1; }
 .staff-content-form input, .staff-content-form textarea, .staff-content-form select { padding: 0.75rem; border: 1px solid var(--color-border); background: var(--color-white); }
 .field-error { color: #8b2d24; font-size: 0.85rem; }
+.staff-filters { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin: var(--space-lg) 0; }
+.staff-filters button { padding: 0.5rem 0.8rem; border: 1px solid var(--color-border); background: var(--color-white); cursor: pointer; }
+.staff-filters button.active { color: var(--color-white); background: var(--color-forest); }
+.staff-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); max-width: 55rem; }
+.staff-detail div { padding: var(--space-md); border-bottom: 1px solid var(--color-border); }
+.staff-detail dt { color: var(--color-gold); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; }
+.staff-detail dd { margin: 0; }
+.staff-message, .staff-status-form { max-width: 55rem; margin-top: var(--space-xl); padding: var(--space-lg); background: var(--color-white); }
+.staff-status-form label { display: flex; max-width: 22rem; flex-direction: column; gap: var(--space-xs); }
+.staff-status-form select { padding: 0.7rem; }
 
 @media (max-width: 55rem) {
   .site-header__inner { align-items: flex-start; flex-direction: column; }
