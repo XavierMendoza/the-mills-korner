@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import NewsletterSignup from '../public/NewsletterSignup.jsx'
 
 function Footer() {
   return (
@@ -14,6 +15,7 @@ function Footer() {
         </nav>
         <p className="site-footer__copyright">&copy; {new Date().getFullYear()} The Mills Korner.</p>
       </div>
+      <NewsletterSignup />
     </footer>
   )
 }
