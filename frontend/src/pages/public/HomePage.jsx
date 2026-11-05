@@ -5,34 +5,15 @@ import { stories } from '../../data/stories.js'
 import { partners } from '../../data/partners.js'
 import { events } from '../../data/events.js'
 import SectionStatus from '../../components/public/SectionStatus.jsx'
-import DonateLink from '../../components/public/DonateLink.jsx'
+import HeroCarousel from '../../components/public/HeroCarousel.jsx'
+import OpportunityCard from '../../components/public/OpportunityCard.jsx'
+import FeaturedQuote from '../../components/public/FeaturedQuote.jsx'
+import EditorialEmptyState from '../../components/public/EditorialEmptyState.jsx'
 
 function HomePage() {
   return (
     <>
-      <section className="home-hero">
-        <div className="home-hero__content">
-          <p className="page-eyebrow">The Mills Korner</p>
-          <h1>
-            Developing Leaders.<br />
-            Expanding Opportunity.<br />
-            Strengthening Communities.
-          </h1>
-          <p className="home-hero__lead">
-            The Mills Korner equips young people ages 10–22 with the relationships, skills,
-            and opportunities they need to build successful futures.
-          </p>
-          <div className="button-row">
-            <Link className="button button--primary" to="/get-involved">Become a Mentor</Link>
-            <Link className="button button--secondary" to="/get-involved">Partner With Us</Link>
-            <DonateLink className="button button--secondary" label="Invest in a Future" />
-          </div>
-        </div>
-        <aside className="home-hero__statement" aria-label="Our purpose">
-          <span>We don&apos;t define young people by where they begin.</span>
-          <strong>We prepare them for where they can go.</strong>
-        </aside>
-      </section>
+      <HeroCarousel />
 
       <section className="home-section home-section--forest">
         <div className="section-heading">
@@ -59,29 +40,23 @@ function HomePage() {
           <Link className="text-link" to="/opportunity">View all opportunities →</Link>
         </div>
         <SectionStatus empty={!opportunities.length} emptyMessage="Opportunity areas will be shared soon." />
-        <div className="editorial-grid">
-          {opportunities.slice(0, 3).map((item) => (
-            <article className="feature-card" key={item.id}>
-              {item.featured_image && <img src={item.featured_image} alt="" />}
-              <div className="feature-card__body">
-                <h3>{item.title}</h3><p>{item.short_description}</p>
-                <Link to={`/opportunity/${item.slug}`}>Explore this area →</Link>
-              </div>
-            </article>
-          ))}
+        <div className="opportunity-grid">
+          {opportunities.map((item, index) => <OpportunityCard key={item.id} item={item} index={index} heading="h3" />)}
         </div>
       </section>
+
+      <FeaturedQuote />
 
       <section className="home-section home-section--tinted">
         <div className="section-heading section-heading--split">
           <div><p className="page-eyebrow">Community voices</p><h2>Stories of forward motion</h2></div>
           <Link className="text-link" to="/stories">All stories →</Link>
         </div>
-        <SectionStatus empty={!stories.length} emptyMessage="Transformation stories will be shared with participant permission as they become available." />
+        {!stories.length && <EditorialEmptyState image="wellness" eyebrow="Stories of growth" title="Before. Transformation. Where they are now.">Transformation stories will be shared with participant permission as they become available.</EditorialEmptyState>}
         <div className="story-grid">
           {stories.slice(0, 3).map((story) => (
             <article className="story-card" key={story.id}>
-              {story.featured_image && <img src={story.featured_image} alt="" />}
+              {story.featured_image && <img loading="lazy" decoding="async" src={story.featured_image} alt="" />}
               <div><p className="card-kicker">{story.person_name || 'A TMK story'}</p><h3>{story.title}</h3>
                 <p>{story.summary}</p><Link to={`/stories/${story.slug}`}>Read the story →</Link></div>
             </article>
@@ -94,11 +69,11 @@ function HomePage() {
           <div><p className="page-eyebrow">Stronger together</p><h2>Community partners</h2></div>
           <Link className="text-link" to="/partners">Meet our partners →</Link>
         </div>
-        <SectionStatus empty={!partners.length} emptyMessage="Partner profiles will be shared here soon." />
+        {!partners.length && <><div className="partner-categories">{['Schools', 'Foundations', 'Businesses', 'Cities', 'Faith Communities'].map((category) => <p key={category}>{category}</p>)}</div><p className="section-status">Partner profiles will be shared here soon.</p></>}
         <div className="partner-grid">
           {partners.slice(0, 6).map((partner) => (
             <div className="partner" key={partner.id}>
-              {partner.logo && <img src={partner.logo} alt={`${partner.name} logo`} />}
+              {partner.logo && <img loading="lazy" decoding="async" src={partner.logo} alt={`${partner.name} logo`} />}
               <span>{partner.name}</span>
             </div>
           ))}
@@ -110,7 +85,7 @@ function HomePage() {
           <div><p className="page-eyebrow">Gather with purpose</p><h2>Upcoming events</h2></div>
           <Link className="text-link" to="/events">View all events →</Link>
         </div>
-        <SectionStatus empty={!events.length} emptyMessage="Upcoming events will be announced here." />
+        {!events.length && <EditorialEmptyState image="community" eyebrow="Gather with purpose" title="Gather around what matters.">Upcoming events will be announced here.</EditorialEmptyState>}
         <div className="event-list">
           {events.slice(0, 3).map((event) => (
             <article className="event-row" key={event.id}>
