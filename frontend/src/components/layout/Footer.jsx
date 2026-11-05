@@ -16,6 +16,7 @@ function Footer() {
         <p className="site-footer__copyright">&copy; {new Date().getFullYear()} The Mills Korner.</p>
       </div>
       <NewsletterSignup />
+      <p className="photo-disclosure">Photography is representative and does not depict TMK participants.</p>
     </footer>
   )
 }
