@@ -1,28 +1,17 @@
 import { useState } from 'react'
 
-import { submitInquiry } from '../../api/engagement.js'
-import { publicFormError } from '../../utils/apiErrors.js'
-
 const emptyFields = { first_name: '', last_name: '', email: '', phone: '', organization: '', message: '' }
 
-function InquiryForm({ fixedType, typeOptions = [], successMessage }) {
+function InquiryForm({ fixedType, typeOptions = [] }) {
   const [fields, setFields] = useState(emptyFields)
   const [inquiryType, setInquiryType] = useState(fixedType || typeOptions[0]?.value || '')
-  const [status, setStatus] = useState({ submitting: false, success: '', error: '' })
+  const [notice, setNotice] = useState('')
 
   const updateField = ({ target }) => setFields((current) => ({ ...current, [target.name]: target.value }))
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    setStatus({ submitting: true, success: '', error: '' })
-    try {
-      await submitInquiry({ inquiry_type: fixedType || inquiryType, ...fields })
-      setFields(emptyFields)
-      if (!fixedType) setInquiryType(typeOptions[0].value)
-      setStatus({ submitting: false, success: successMessage, error: '' })
-    } catch (error) {
-      setStatus({ submitting: false, success: '', error: publicFormError(error) })
-    }
+    setNotice('Online messages are temporarily unavailable. Your message has not been sent.')
   }
 
   return <form className="engagement-form" onSubmit={handleSubmit}>
@@ -35,9 +24,8 @@ function InquiryForm({ fixedType, typeOptions = [], successMessage }) {
       <label className="form-grid__wide">Organization <span className="optional">Optional</span><input name="organization" value={fields.organization} onChange={updateField} /></label>
       <label className="form-grid__wide">Message <span aria-hidden="true">*</span><textarea required name="message" rows="7" value={fields.message} onChange={updateField} /></label>
     </div>
-    {status.success && <p className="form-message form-message--success" role="status">{status.success}</p>}
-    {status.error && <p className="form-message form-message--error" role="alert">{status.error}</p>}
-    <button className="button button--primary" type="submit" disabled={status.submitting}>{status.submitting ? 'Sending…' : 'Send message'}</button>
+    <p className="form-message" role="status">{notice}</p>
+    <button className="button button--primary" type="submit">Send message</button>
   </form>
 }
 
