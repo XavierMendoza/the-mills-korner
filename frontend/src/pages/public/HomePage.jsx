@@ -5,6 +5,7 @@ import { stories } from '../../data/stories.js'
 import { partners } from '../../data/partners.js'
 import { events } from '../../data/events.js'
 import SectionStatus from '../../components/public/SectionStatus.jsx'
+import DonateLink from '../../components/public/DonateLink.jsx'
 
 function HomePage() {
   return (
@@ -24,7 +25,7 @@ function HomePage() {
           <div className="button-row">
             <Link className="button button--primary" to="/get-involved">Become a Mentor</Link>
             <Link className="button button--secondary" to="/get-involved">Partner With Us</Link>
-            <Link className="button button--secondary" to="/get-involved">Invest in a Future</Link>
+            <DonateLink className="button button--secondary" label="Invest in a Future" />
           </div>
         </div>
         <aside className="home-hero__statement" aria-label="Our purpose">

@@ -37,3 +37,7 @@ Forms retain their fields, native required/email validation, buttons, and entere
 The backend was not deleted or modified. Django models, serializers, routes, settings, migrations, tests, authorization, audit, engagement, seed commands, and PostgreSQL configuration remain preserved. Staff CMS changes no longer publish to the static public site. The full-stack version may later be separated or rebranded as a portfolio/reusable platform.
 
 Future integrations are an email marketing provider and Stripe donations. Neither is implemented here. A real inquiry delivery mechanism also remains a production decision. No credentials, provider keys, donation URLs, or dependencies were added. Static hosting must serve the SPA entry point for direct navigation to React routes.
+
+## Donations
+
+Donations will use a client-owned Stripe Payment Link, with Stripe hosting payment collection; TMK will not process card data directly. After client Stripe access is available, add the final public Payment Link to `frontend/src/config/donations.js`. No Stripe secret/API keys belong in frontend code. `DonateLink` renders nothing while the configured URL is empty and renders an external button link once it is populated. The homepage's “Invest in a Future” CTA uses this component; mentor and partner links remain available. “Invest in Opportunity” remains general participation copy on Home and Get Involved.
