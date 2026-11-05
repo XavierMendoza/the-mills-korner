@@ -1,58 +1,12 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-import {
-  getEvents,
-  getImpactMetrics,
-  getOpportunityAreas,
-  getPartners,
-  getStories,
-} from '../../api/public.js'
-import { resolveMediaUrl } from '../../utils/media.js'
-
-const services = {
-  metrics: getImpactMetrics,
-  opportunities: getOpportunityAreas,
-  stories: getStories,
-  partners: getPartners,
-  events: getEvents,
-}
-
-const initialData = Object.fromEntries(
-  Object.keys(services).map((key) => [key, { items: [], loading: true, error: false }]),
-)
-
-function EmptyState({ state, emptyMessage }) {
-  if (state.loading) return <p className="section-status">Loading…</p>
-  if (state.error) return <p className="section-status">This information is temporarily unavailable.</p>
-  if (!state.items.length) return <p className="section-status">{emptyMessage}</p>
-  return null
-}
+import { impactMetrics } from '../../data/impactMetrics.js'
+import { opportunities } from '../../data/opportunities.js'
+import { stories } from '../../data/stories.js'
+import { partners } from '../../data/partners.js'
+import { events } from '../../data/events.js'
+import SectionStatus from '../../components/public/SectionStatus.jsx'
 
 function HomePage() {
-  const [data, setData] = useState(initialData)
-
-  useEffect(() => {
-    let active = true
-
-    Promise.allSettled(Object.entries(services).map(async ([key, request]) => [key, await request()]))
-      .then((results) => {
-        if (!active) return
-        setData((current) => {
-          const next = { ...current }
-          results.forEach((result, index) => {
-            const key = Object.keys(services)[index]
-            next[key] = result.status === 'fulfilled'
-              ? { items: result.value[1], loading: false, error: false }
-              : { items: [], loading: false, error: true }
-          })
-          return next
-        })
-      })
-
-    return () => { active = false }
-  }, [])
-
   return (
     <>
       <section className="home-hero">
@@ -84,10 +38,10 @@ function HomePage() {
           <p className="page-eyebrow">Impact in motion</p>
           <h2>Progress made visible.</h2>
         </div>
-        <EmptyState state={data.metrics} emptyMessage="Impact updates are coming soon." />
-        {!!data.metrics.items.length && (
+        <SectionStatus empty={!impactMetrics.length} emptyMessage="Impact updates are coming soon." />
+        {!!impactMetrics.length && (
           <div className="metric-grid">
-            {data.metrics.items.map((metric) => (
+            {impactMetrics.map((metric) => (
               <article className="metric" key={metric.id}>
                 <p className="metric__value">{metric.prefix}{metric.value.toLocaleString()}{metric.suffix}</p>
                 <h3>{metric.name}</h3>
@@ -103,11 +57,11 @@ function HomePage() {
           <div><p className="page-eyebrow">Where possibility grows</p><h2>Opportunity, not programs.</h2></div>
           <Link className="text-link" to="/opportunity">View all opportunities →</Link>
         </div>
-        <EmptyState state={data.opportunities} emptyMessage="Opportunity areas will be shared soon." />
+        <SectionStatus empty={!opportunities.length} emptyMessage="Opportunity areas will be shared soon." />
         <div className="editorial-grid">
-          {data.opportunities.items.slice(0, 3).map((item) => (
+          {opportunities.slice(0, 3).map((item) => (
             <article className="feature-card" key={item.id}>
-              {item.featured_image && <img src={resolveMediaUrl(item.featured_image)} alt="" />}
+              {item.featured_image && <img src={item.featured_image} alt="" />}
               <div className="feature-card__body">
                 <h3>{item.title}</h3><p>{item.short_description}</p>
                 <Link to={`/opportunity/${item.slug}`}>Explore this area →</Link>
@@ -122,11 +76,11 @@ function HomePage() {
           <div><p className="page-eyebrow">Community voices</p><h2>Stories of forward motion</h2></div>
           <Link className="text-link" to="/stories">All stories →</Link>
         </div>
-        <EmptyState state={data.stories} emptyMessage="Transformation stories will be shared with participant permission as they become available." />
+        <SectionStatus empty={!stories.length} emptyMessage="Transformation stories will be shared with participant permission as they become available." />
         <div className="story-grid">
-          {data.stories.items.slice(0, 3).map((story) => (
+          {stories.slice(0, 3).map((story) => (
             <article className="story-card" key={story.id}>
-              {story.featured_image && <img src={resolveMediaUrl(story.featured_image)} alt="" />}
+              {story.featured_image && <img src={story.featured_image} alt="" />}
               <div><p className="card-kicker">{story.person_name || 'A TMK story'}</p><h3>{story.title}</h3>
                 <p>{story.summary}</p><Link to={`/stories/${story.slug}`}>Read the story →</Link></div>
             </article>
@@ -139,11 +93,11 @@ function HomePage() {
           <div><p className="page-eyebrow">Stronger together</p><h2>Community partners</h2></div>
           <Link className="text-link" to="/partners">Meet our partners →</Link>
         </div>
-        <EmptyState state={data.partners} emptyMessage="Partner profiles will be shared here soon." />
+        <SectionStatus empty={!partners.length} emptyMessage="Partner profiles will be shared here soon." />
         <div className="partner-grid">
-          {data.partners.items.slice(0, 6).map((partner) => (
+          {partners.slice(0, 6).map((partner) => (
             <div className="partner" key={partner.id}>
-              {partner.logo && <img src={resolveMediaUrl(partner.logo)} alt={`${partner.name} logo`} />}
+              {partner.logo && <img src={partner.logo} alt={`${partner.name} logo`} />}
               <span>{partner.name}</span>
             </div>
           ))}
@@ -155,9 +109,9 @@ function HomePage() {
           <div><p className="page-eyebrow">Gather with purpose</p><h2>Upcoming events</h2></div>
           <Link className="text-link" to="/events">View all events →</Link>
         </div>
-        <EmptyState state={data.events} emptyMessage="Upcoming events will be announced here." />
+        <SectionStatus empty={!events.length} emptyMessage="Upcoming events will be announced here." />
         <div className="event-list">
-          {data.events.items.slice(0, 3).map((event) => (
+          {events.slice(0, 3).map((event) => (
             <article className="event-row" key={event.id}>
               <time dateTime={event.start_datetime}>{new Date(event.start_datetime).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</time>
               <div><h3>{event.title}</h3><p>{event.summary}</p></div>
