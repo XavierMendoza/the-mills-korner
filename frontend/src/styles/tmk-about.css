@@ -1,0 +1,95 @@
+/* Kevin's story only. Keep other public page designs and Home unchanged. */
+.tmk-about {
+  --about-black: #141414;
+  --about-paper: #f5f3ef;
+  --about-red: #c92332;
+  color: var(--about-black);
+  background: var(--about-paper);
+}
+.tmk-about :is(h1, h2, h3, a) { color: inherit; }
+.site-shell .tmk-about :is(a, button):focus-visible { outline: 3px solid var(--about-red); outline-offset: 5px; box-shadow: 0 0 0 2px white; }
+.tmk-about h1 { margin: 0 0 1.5rem; font-size: clamp(3.75rem, 8vw, 7.5rem); font-weight: 850; line-height: .98; letter-spacing: -.065em; }
+.tmk-about h2 { margin: 0 0 1.75rem; font-size: clamp(2.25rem, 4.2vw, 4rem); font-weight: 850; line-height: 1.04; letter-spacing: -.05em; }
+.tmk-about h3 { font-size: 1.6rem; letter-spacing: -.025em; }
+.tmk-about p { max-width: 60ch; }
+.tmk-about .tmk-about-eyebrow { color: #a91927; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; margin: 0 0 1.5rem; }
+.tmk-about-lead { font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.6; }
+.tmk-about .tmk-about-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 1rem 1.3rem; background: var(--about-red); color: white; font-weight: 750; line-height: 1.4; text-decoration: none; }
+.tmk-about .tmk-about-button:hover { background: #a51927; }
+.tmk-about .tmk-about-link { display: inline-block; padding-block: .6rem; font-size: .95rem; font-weight: 750; text-decoration-color: var(--about-red); text-underline-offset: .4rem; }
+.tmk-about-section { padding-block: clamp(4rem, 7vw, 7rem); }
+.tmk-about-hero { padding-block: clamp(3rem, 5vw, 5rem); color: white; background: var(--about-black); }
+.tmk-about-hero-grid { display: grid; grid-template-columns: 1.05fr .85fr; align-items: center; gap: clamp(3rem, 7vw, 7rem); }
+.tmk-about-hero .tmk-about-eyebrow { color: #ff8791; }
+.tmk-about-hero h1 span { color: #ff7b88; }
+.tmk-about-role { margin-bottom: 2rem; font-weight: 750; }
+.tmk-about-hero .tmk-about-lead { max-width: 26ch; color: #d1d1d1; }
+.tmk-about-portrait { position: relative; margin: 0 1rem 1rem 0; }
+.tmk-about-portrait::before { position: absolute; content: ''; inset: 1rem -1rem -1rem 1rem; background: var(--about-red); }
+.tmk-about-portrait img { position: relative; display: block; width: 100%; height: auto; }
+.tmk-about-portrait figcaption { position: relative; padding: .85rem 1rem; background: #252525; font-size: .8rem; }
+.tmk-about-editorial { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(3rem, 7vw, 7rem); }
+.tmk-about-prose { max-width: 42rem; }
+.tmk-about-prose > p:last-of-type { margin-bottom: 0; }
+.tmk-about-prose .tmk-about-link { margin-top: 1.25rem; }
+.tmk-about-belief { padding-block: clamp(4rem, 8vw, 8rem); border-left: 8px solid var(--about-red); background: var(--about-black); color: white; }
+.tmk-about-belief .tmk-about-eyebrow { color: #ff8791; }
+.tmk-about-belief figure { margin: 0; }
+.tmk-about-belief blockquote { margin: 0 0 2rem; max-width: 24ch; font-size: clamp(2.6rem, 5.8vw, 5.5rem); font-weight: 850; line-height: 1.06; letter-spacing: -.05em; }
+.tmk-about-belief blockquote span { color: #ff7b88; }
+.tmk-about-belief figcaption { color: #ccc; font-size: .9rem; }
+.tmk-about-experience { background: white; }
+.tmk-about-experience-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-block: 3rem; }
+.tmk-about-experience-grid article { border-top: 4px solid var(--about-red); padding-top: 1.5rem; }
+.tmk-about-number { display: block; margin-bottom: 1rem; color: #a91927; font-size: 1.3rem; font-weight: 850; }
+.tmk-about-experience-grid p { color: #525252; }
+.tmk-about-education { border-top: 1px solid #d6d1ca; padding-top: 2rem; }
+.tmk-about-education h3 { margin-bottom: .75rem; }
+.tmk-about-education ul { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; padding-left: 1.2rem; margin-bottom: 0; }
+.tmk-about-education li { padding-left: .2rem; }
+.tmk-about-purpose { background: #eeece8; }
+.tmk-about-learning { background: var(--about-black); color: white; }
+.tmk-about-learning .tmk-about-eyebrow { color: #ff8791; }
+.tmk-about-stanzas { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 5rem; margin: 3rem 0 2rem; }
+.tmk-about-stanzas p { border-top: 1px solid #555; padding-top: 1.5rem; margin: 0; white-space: pre-line; font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.65; font-weight: 700; letter-spacing: -.01em; }
+.tmk-about-stanza-number { display: block; color: #ff7b88; margin-bottom: 1.25rem; font-size: .75rem; letter-spacing: .12em; }
+.tmk-about-learning-credit { color: #bbb; font-size: .8rem; }
+.tmk-about-athletics { display: grid; grid-template-columns: 1.1fr 1fr; background: #252525; color: white; }
+.tmk-about-athletics > img { display: block; width: 100%; height: 100%; min-height: 540px; object-fit: cover; }
+.tmk-about-feature-copy { padding: clamp(2rem, 5vw, 5rem); align-self: center; }
+.tmk-about-feature-copy .tmk-about-eyebrow { color: #ff8791; }
+.tmk-about-feature-copy p:not(.tmk-about-eyebrow) { color: #ddd; }
+.tmk-about-service { display: grid; grid-template-columns: .9fr 1fr; gap: clamp(3rem, 7vw, 7rem); align-items: center; }
+.tmk-about-service figure { margin: 0; }
+.tmk-about-service img { width: 100%; height: auto; display: block; border-bottom: 5px solid var(--about-red); }
+.tmk-about-service figcaption { padding-top: .75rem; font-size: .8rem; color: #666; }
+.tmk-about-closing { background: var(--about-red); color: white; }
+.tmk-about-closing .tmk-about-eyebrow { color: white; }
+.tmk-about-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+.tmk-about-closing .tmk-about-button { background: white; color: var(--about-black); }
+.tmk-about-closing .tmk-about-button:hover { background: var(--about-paper); }
+.tmk-about-closing .tmk-about-link { text-decoration-color: white; }
+@media (max-width: 1024px) {
+  .tmk-about-hero-grid, .tmk-about-editorial, .tmk-about-service { gap: 3rem; }
+  .tmk-about-education ul { flex-direction: column; gap: .75rem; }
+}
+@media (max-width: 768px) {
+  .tmk-about-hero-grid, .tmk-about-editorial, .tmk-about-service, .tmk-about-athletics { grid-template-columns: 1fr; }
+  .tmk-about-portrait { max-width: 420px; }
+  .tmk-about h1 { font-size: clamp(3.5rem, 12vw, 6rem); }
+  .tmk-about-hero-copy { max-width: 36rem; }
+  .tmk-about-experience-grid { gap: 1.5rem; }
+  .tmk-about-stanzas { gap: 2.5rem; }
+  .tmk-about-athletics > img { min-height: 0; height: auto; }
+  .tmk-about-feature-copy { padding: 3rem 1.5rem; }
+  .tmk-about-service figure { max-width: 500px; }
+}
+@media (max-width: 640px) {
+  .tmk-about-experience-grid, .tmk-about-stanzas { grid-template-columns: 1fr; }
+  .tmk-about-hero-grid { gap: 2.5rem; }
+  .tmk-about-belief { border-left-width: 5px; }
+  .tmk-about-belief blockquote { font-size: clamp(2.5rem, 9vw, 3.6rem); }
+  .tmk-about-actions { align-items: flex-start; flex-direction: column; }
+  .tmk-about-stanzas p { font-size: clamp(.95rem, 3.7vw, 1.25rem); }
+}
+.site-shell .tmk-about-closing a:focus-visible { outline-color: white; box-shadow: 0 0 0 2px var(--about-black); }

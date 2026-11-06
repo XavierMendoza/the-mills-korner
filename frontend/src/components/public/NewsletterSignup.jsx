@@ -1,7 +1,7 @@
 function NewsletterSignup() {
   return (
     <div className="newsletter">
-      <h2>Stay connected</h2>
+      <h2>Stay Konnected<br />With TMK</h2>
       <form
         method="POST"
         action="https://285cd55d.sibforms.com/serve/MUIFALniuc74hgZEOE-xAyQkscpvkRynbf9TxP3B-sp1cSiyY88K4t_P6DDscmqXR5PsqSA6M19sIWikFBqBIIE2P7i-8zh9kN493JKubNZYY9NVe7WJKO1lV7JR8hOHqBftzglcCddTt9ZdvAEV1XQ3oRlXzHFcsQES6ngn1hqDL_QqwnliVgknYvHWrRlbgjR6BgTXiGjz6ddnng=="
@@ -9,7 +9,7 @@ function NewsletterSignup() {
         <label htmlFor="newsletter-email">Email address</label>
         <div>
           <input id="newsletter-email" name="EMAIL" type="email" required autoComplete="email" />
-          <button type="submit">Join</button>
+          <button type="submit">Join the TMK Newsletter</button>
         </div>
         <input
           className="newsletter-honeypot"
