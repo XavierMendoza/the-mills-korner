@@ -1,0 +1,77 @@
+/* Stories landing page only. Exact approved excerpts retain their wording. */
+.tmk-stories-page {
+  --stories-black: #141414;
+  --stories-paper: #f5f3ef;
+  --stories-red: #c92332;
+  color: var(--stories-black);
+  background: var(--stories-paper);
+}
+.tmk-stories-page :is(h1, h2, h3, a) { color: inherit; }
+.site-shell .tmk-stories-page a:focus-visible { outline: 3px solid var(--stories-red); outline-offset: 5px; box-shadow: 0 0 0 2px white; }
+.tmk-stories-page h1 { margin: 0 0 1.75rem; font-size: clamp(3rem, 5.4vw, 5.3rem); font-weight: 850; line-height: 1.02; letter-spacing: -.06em; }
+.tmk-stories-page h2 { margin: 0 0 1.75rem; font-size: clamp(2.3rem, 4.2vw, 4rem); font-weight: 850; line-height: 1.04; letter-spacing: -.05em; }
+.tmk-stories-page p { max-width: 60ch; }
+.tmk-stories-page figure { margin: 0; }
+.tmk-stories-page .tmk-stories-eyebrow { margin: 0 0 1.5rem; color: #a91927; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.tmk-stories-lead { font-size: clamp(1.1rem, 1.8vw, 1.4rem); line-height: 1.65; }
+.tmk-stories-section { padding-block: clamp(4rem, 7vw, 7rem); }
+.tmk-stories-page .tmk-stories-link { display: inline-block; padding-block: .6rem; font-size: .95rem; font-weight: 750; text-decoration-color: var(--stories-red); text-underline-offset: .4rem; }
+.tmk-stories-page .tmk-stories-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 1rem 1.3rem; color: white; background: var(--stories-red); font-weight: 750; line-height: 1.4; text-decoration: none; }
+.tmk-stories-page .tmk-stories-button:hover { background: #a51927; }
+.tmk-stories-hero { padding-block: clamp(3rem, 5vw, 5rem); color: white; background: var(--stories-black); }
+.tmk-stories-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: center; }
+.tmk-stories-hero .tmk-stories-eyebrow { color: #ff8791; }
+.tmk-stories-hero h1 span { color: #ff7b88; }
+.tmk-stories-hero .tmk-stories-lead { max-width: 35ch; color: #d1d1d1; }
+.tmk-stories-hero-photo img { display: block; width: 100%; height: auto; border-bottom: 5px solid var(--stories-red); }
+.tmk-stories-hero-photo figcaption { padding-top: .75rem; color: #bbb; font-size: .75rem; }
+.tmk-stories-featured { background: var(--stories-paper); }
+.tmk-stories-featured-grid { display: grid; grid-template-columns: .85fr 1fr; align-items: center; gap: clamp(3rem, 7vw, 7rem); margin-top: 3rem; }
+.tmk-stories-context-photo img { display: block; width: 100%; height: auto; max-height: 600px; object-fit: cover; object-position: center 35%; }
+.tmk-stories-context-photo figcaption { padding-top: .75rem; font-size: .75rem; color: #666; }
+.tmk-story-quote-mark { display: block; color: #b31e2b; font-size: 7rem; font-weight: 850; line-height: .7; }
+.tmk-story-quote blockquote { margin: 1.5rem 0 2rem; }
+.tmk-story-quote blockquote p { margin: 0; font-size: clamp(2rem, 3.8vw, 3.5rem); line-height: 1.13; font-weight: 800; letter-spacing: -.04em; }
+.tmk-story-quote figcaption { font-size: .95rem; font-weight: 650; }
+.tmk-stories-collection { padding-top: 0; }
+.tmk-stories-quotes { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+.tmk-stories-quote-panel { display: flex; align-items: center; padding: clamp(2rem, 4vw, 4rem); background: #252525; color: white; border-top: 5px solid var(--stories-red); }
+.tmk-stories-quote-panel .tmk-story-quote-mark { color: #ff7b88; }
+.tmk-stories-quote-panel--la-france-gregory { background: var(--stories-red); border-top-color: var(--stories-black); }
+.tmk-stories-quote-panel--la-france-gregory .tmk-story-quote-mark { color: white; }
+.tmk-stories-quote-panel--la-france-gregory blockquote p { font-size: clamp(1.9rem, 3.2vw, 3rem); }
+.tmk-stories-themes { background: var(--stories-black); color: white; }
+.tmk-stories-themes .tmk-stories-eyebrow { color: #ff8791; }
+.tmk-stories-theme-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+.tmk-stories-theme-grid article { border-top: 4px solid var(--stories-red); padding-top: 1.5rem; }
+.tmk-stories-theme-grid h3 { margin: 0 0 1rem; font-size: 1.65rem; line-height: 1.1; letter-spacing: -.025em; }
+.tmk-stories-theme-grid p { color: #ccc; margin: 0; }
+.tmk-stories-relationships { background: white; }
+.tmk-stories-relationships-grid { display: grid; grid-template-columns: 1.1fr .8fr; align-items: center; gap: clamp(3rem, 7vw, 7rem); }
+.tmk-stories-relationships-grid figure { max-width: 400px; justify-self: end; }
+.tmk-stories-relationships-grid img { display: block; width: 100%; height: auto; border-bottom: 5px solid var(--stories-red); }
+.tmk-stories-relationships-grid figcaption { padding-top: .75rem; font-size: .8rem; color: #666; }
+.tmk-stories-closing { color: white; background: var(--stories-red); }
+.tmk-stories-closing .tmk-stories-eyebrow { color: white; }
+.tmk-stories-actions { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; }
+.tmk-stories-closing .tmk-stories-button { background: white; color: var(--stories-black); }
+.tmk-stories-closing .tmk-stories-button:hover { background: var(--stories-paper); }
+.tmk-stories-closing .tmk-stories-link { text-decoration-color: white; }
+.site-shell .tmk-stories-closing a:focus-visible { outline-color: white; box-shadow: 0 0 0 2px var(--stories-black); }
+@media (max-width: 1024px) {
+  .tmk-stories-hero-grid, .tmk-stories-featured-grid, .tmk-stories-relationships-grid { gap: 3rem; }
+  .tmk-stories-theme-grid { gap: 1.5rem; }
+}
+@media (max-width: 768px) {
+  .tmk-stories-hero-grid, .tmk-stories-featured-grid, .tmk-stories-relationships-grid { grid-template-columns: 1fr; }
+  .tmk-stories-hero-photo { max-width: 600px; }
+  .tmk-stories-context-photo { max-width: 420px; }
+  .tmk-stories-relationships-grid figure { justify-self: start; }
+  .tmk-story-quote blockquote p { font-size: clamp(2rem, 6vw, 3.5rem); }
+}
+@media (max-width: 640px) {
+  .tmk-stories-page h1 { font-size: clamp(2.7rem, 9vw, 4rem); }
+  .tmk-stories-quotes, .tmk-stories-theme-grid { grid-template-columns: 1fr; }
+  .tmk-stories-hero-grid { gap: 2.5rem; }
+  .tmk-stories-actions { flex-direction: column; align-items: flex-start; }
+}
