@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import TmkPhoto from '../../components/public/TmkPhoto.jsx'
-import { donationUrl, monthlyDonationUrl } from '../../config/donations.js'
 import '../../styles/tmk-involved.css'
 
 const email = 'kevin@themillskorner.org'
@@ -41,12 +40,7 @@ export default function GetInvolvedPage() {
           <h2 id="involved-giving-title">Invest in a Young Person’s Future</h2>
           <div>
             <p className="tmk-involved-lead">Support the relationships, skills, and opportunities that help young people prepare for what comes next.</p>
-            {donationUrl || monthlyDonationUrl ? (
-              <div className="tmk-involved-actions">
-                {donationUrl && <a className="tmk-involved-button" href={donationUrl} target="_blank" rel="noopener noreferrer">Make a One-Time Donation</a>}
-                {monthlyDonationUrl && <a className="tmk-involved-button" href={monthlyDonationUrl} target="_blank" rel="noopener noreferrer">Support TMK Every Month</a>}
-              </div>
-            ) : <p className="tmk-involved-giving-note">Online giving is coming soon.</p>}
+            <Link className="tmk-involved-button" to="/donate">Support TMK Through Giving</Link>
           </div>
         </div>
       </section>
@@ -87,7 +81,7 @@ export default function GetInvolvedPage() {
           <div className="tmk-involved-actions">
             <a className="tmk-involved-button" href={emailHref}>Email TMK Directly</a>
             <Link to="/impact">See TMK’s Kommunity Impact</Link>
-            <a href="#giving">Support TMK Through Giving</a>
+            <Link to="/donate">Support TMK Through Giving</Link>
           </div>
         </div>
       </section>

@@ -15,7 +15,7 @@ export default function HeroCarousel() {
       <p className="tmk-eyebrow">The Mills Korner · A heart of service</p>
       <h1>Developing Leaders.<br />Expanding Opportunity.<br /><span>Strengthening Communities.</span></h1>
       <p className="tmk-lead">The Mills Korner equips young people ages 10–22 with the relationships, skills, and opportunities they need to build successful futures.</p>
-      <div className="tmk-actions"><Link className="tmk-button tmk-hero-primary" to="/about">Meet Kevin &amp; Read His Story <span aria-hidden="true">↗</span></Link><Link className="tmk-button tmk-button--outline" to="/opportunity">See How TMK Supports Young People →</Link><a className="tmk-link tmk-hero-tertiary" href="#giving">Support TMK Through Giving →</a></div>
+      <div className="tmk-actions"><Link className="tmk-button tmk-hero-primary" to="/about">Meet Kevin &amp; Read His Story <span aria-hidden="true">↗</span></Link><Link className="tmk-button tmk-button--outline" to="/opportunity">See How TMK Supports Young People →</Link><Link className="tmk-link tmk-hero-tertiary" to="/donate">Support TMK Through Giving →</Link></div>
     </div>
     <div className="tmk-hero-carousel" role="region" aria-label="TMK in action" aria-roledescription="carousel" {...carousel.interaction}>
       <div className="tmk-hero-photos">

@@ -2,14 +2,13 @@ import { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { impactMetrics } from '../../data/impactMetrics.js'
 import { opportunities } from '../../data/opportunities.js'
-import { donationUrl, monthlyDonationUrl } from '../../config/donations.js'
 import HeroCarousel from '../../components/public/HeroCarousel.jsx'
 import TestimonialCarousel from '../../components/public/TestimonialCarousel.jsx'
 import TmkPhoto from '../../components/public/TmkPhoto.jsx'
 
 const opportunityCtas = ['Explore Academic Success', 'Explore Financial Capability', 'Explore Leadership Development', 'Explore Wellness Support', 'Explore TMK Mentorship']
-function GivingPath({ title, description, url, number }) {
-  return <article className="tmk-giving-card"><span className="tmk-eyebrow">{number}</span><h3>{title}</h3><p>{description}</p>{url ? <a className="tmk-button" href={url} target="_blank" rel="noopener noreferrer">{title} ↗</a> : <p className="tmk-giving-pending">Online giving will be available soon.</p>}</article>
+function GivingPath({ title, description, number }) {
+  return <article className="tmk-giving-card"><span className="tmk-eyebrow">{number}</span><h3>{title}</h3><p>{description}</p><Link className="tmk-button" to="/donate">{title} ↗</Link></article>
 }
 export default function HomePage() {
   const { hash } = useLocation()
@@ -33,6 +32,6 @@ export default function HomePage() {
     </div><Link className="tmk-link" to="/about">See What Guides The Mills Korner →</Link></div></section>
     <TestimonialCarousel />
     <section className="tmk-section tmk-partners"><div className="tmk-wrap"><p className="tmk-eyebrow">A shared commitment</p><h2>Organizations That<br />Have Stood With TMK</h2><div className="tmk-sponsor-logos"><img src="/images/tmk/brand/verizon.webp" alt="Verizon" width="197" height="125" loading="lazy" decoding="async" /><img src="/images/tmk/brand/cbg.webp" alt="CBG — Reimagining Real Estate Development" width="267" height="186" loading="lazy" decoding="async" /></div><Link className="tmk-link" to="/partners">See Who Has Supported TMK →</Link></div></section>
-    <section id="giving" className="tmk-section tmk-giving"><div className="tmk-wrap"><p className="tmk-eyebrow">Put your heart into opportunity</p><h2>Invest in a<br />Young Person's Future</h2><div className="tmk-giving-paths"><GivingPath number="01 / Give once" title="Make a One-Time Donation" description="Make a gift in support of TMK's work with young people." url={donationUrl} /><GivingPath number="02 / Keep showing up" title="Support TMK Every Month" description="Make ongoing support part of your commitment to young people." url={monthlyDonationUrl} /></div><Link className="tmk-link" to="/get-involved">Discover More Ways to Support TMK →</Link></div></section>
+    <section id="giving" className="tmk-section tmk-giving"><div className="tmk-wrap"><p className="tmk-eyebrow">Put your heart into opportunity</p><h2>Invest in a<br />Young Person's Future</h2><div className="tmk-giving-paths"><GivingPath number="01 / Give once" title="Make a One-Time Donation" description="Make a gift in support of TMK's work with young people." /><GivingPath number="02 / Keep showing up" title="Support TMK Every Month" description="Make ongoing support part of your commitment to young people." /></div><Link className="tmk-link" to="/get-involved">Discover More Ways to Support TMK →</Link></div></section>
   </div>
 }

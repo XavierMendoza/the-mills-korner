@@ -88,7 +88,7 @@ export default function AboutPage() {
     </section>
 
     <section className="tmk-about-section tmk-about-closing">
-      <div className="tmk-wrap"><p className="tmk-about-eyebrow">Be part of what comes next</p><h2>Help opportunity<br />reach further.</h2><div className="tmk-about-actions"><Link className="tmk-about-button" to="/opportunity">See How TMK Supports Young People <span aria-hidden="true">↗</span></Link><Link className="tmk-about-link" to="/stories">Read TMK Success Stories →</Link><Link className="tmk-about-link" to="/#giving">Support TMK Through Giving →</Link></div></div>
+      <div className="tmk-wrap"><p className="tmk-about-eyebrow">Be part of what comes next</p><h2>Help opportunity<br />reach further.</h2><div className="tmk-about-actions"><Link className="tmk-about-button" to="/opportunity">See How TMK Supports Young People <span aria-hidden="true">↗</span></Link><Link className="tmk-about-link" to="/stories">Read TMK Success Stories →</Link><Link className="tmk-about-link" to="/donate">Support TMK Through Giving →</Link></div></div>
     </section>
   </div>
 }

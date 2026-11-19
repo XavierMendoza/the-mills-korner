@@ -42,7 +42,7 @@ export default function PartnersPage() {
     </section>
 
     <section className="tmk-partners-section tmk-partners-closing">
-      <div className="tmk-wrap"><p className="tmk-partners-eyebrow">Shared work. Greater reach.</p><h2>Bring Your Organization<br />Into the Conversation</h2><div className="tmk-partners-actions"><Link className="tmk-partners-button" to="/contact">Kontact The Mills Korner <span aria-hidden="true">↗</span></Link><Link className="tmk-partners-link" to="/impact">See TMK's Kommunity Impact →</Link><Link className="tmk-partners-link" to="/#giving">Support TMK Through Giving →</Link></div></div>
+      <div className="tmk-wrap"><p className="tmk-partners-eyebrow">Shared work. Greater reach.</p><h2>Bring Your Organization<br />Into the Conversation</h2><div className="tmk-partners-actions"><Link className="tmk-partners-button" to="/contact">Kontact The Mills Korner <span aria-hidden="true">↗</span></Link><Link className="tmk-partners-link" to="/impact">See TMK's Kommunity Impact →</Link><Link className="tmk-partners-link" to="/donate">Support TMK Through Giving →</Link></div></div>
     </section>
   </div>
 }

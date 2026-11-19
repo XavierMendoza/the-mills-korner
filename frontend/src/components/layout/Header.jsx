@@ -12,6 +12,7 @@ export default function Header() {
       <button ref={toggle} type="button" className="tmk-menu-toggle" aria-expanded={open} aria-controls="tmk-primary-nav" onClick={() => setOpen(value => !value)}>{open ? 'Close ×' : 'Menu ☰'}</button>
       <nav id="tmk-primary-nav" className={open ? 'is-open' : ''} aria-label="Primary navigation">
         {navigationItems.map(([label, to]) => <NavLink key={to} to={to} onClick={() => setOpen(false)}>{label}</NavLink>)}
+        <NavLink className="tmk-nav-support" to="/donate" onClick={() => setOpen(false)}>Support TMK</NavLink>
       </nav>
     </div>
   </header>

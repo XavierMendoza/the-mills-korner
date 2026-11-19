@@ -50,7 +50,7 @@ export default function EventsListPage() {
     </section>
 
     <section className="tmk-events-section tmk-events-participate">
-      <div className="tmk-wrap"><p className="tmk-events-eyebrow">Stay connected. Get involved.</p><h2>Be Part of<br />What Comes Next</h2><div className="tmk-events-actions"><Link className="tmk-events-button" to="/get-involved">Become a TMK Mentor <span aria-hidden="true">↗</span></Link><Link className="tmk-events-link" to="/partners">Partner With The Mills Korner →</Link><a className="tmk-events-link" href="#newsletter-email">Join the TMK Newsletter →</a><Link className="tmk-events-link" to="/#giving">Support TMK Through Giving →</Link></div></div>
+      <div className="tmk-wrap"><p className="tmk-events-eyebrow">Stay connected. Get involved.</p><h2>Be Part of<br />What Comes Next</h2><div className="tmk-events-actions"><Link className="tmk-events-button" to="/get-involved">Become a TMK Mentor <span aria-hidden="true">↗</span></Link><Link className="tmk-events-link" to="/partners">Partner With The Mills Korner →</Link><a className="tmk-events-link" href="#newsletter-email">Join the TMK Newsletter →</a><Link className="tmk-events-link" to="/donate">Support TMK Through Giving →</Link></div></div>
     </section>
 
     {pastEvents.length > 0 && <section className="tmk-events-section tmk-events-archive" aria-labelledby="archive-title"><div className="tmk-wrap"><p className="tmk-events-eyebrow">Past gatherings</p><h2 id="archive-title">Past TMK Events</h2><EventSchedule items={pastEvents} /></div></section>}

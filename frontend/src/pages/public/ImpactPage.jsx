@@ -55,7 +55,7 @@ export default function ImpactPage() {
     </section>
 
     <section className="tmk-impact-section tmk-impact-closing">
-      <div className="tmk-wrap"><p className="tmk-impact-eyebrow">Help opportunity reach further</p><h2>Be part of<br />what comes next.</h2><div className="tmk-impact-actions"><Link className="tmk-impact-button" to="/opportunity">Explore TMK Opportunities <span aria-hidden="true">↗</span></Link><Link className="tmk-impact-link" to="/stories">Read TMK Success Stories →</Link><Link className="tmk-impact-link" to="/#giving">Support TMK Through Giving →</Link><Link className="tmk-impact-link" to="/get-involved">Partner With The Mills Korner →</Link></div></div>
+      <div className="tmk-wrap"><p className="tmk-impact-eyebrow">Help opportunity reach further</p><h2>Be part of<br />what comes next.</h2><div className="tmk-impact-actions"><Link className="tmk-impact-button" to="/opportunity">Explore TMK Opportunities <span aria-hidden="true">↗</span></Link><Link className="tmk-impact-link" to="/stories">Read TMK Success Stories →</Link><Link className="tmk-impact-link" to="/donate">Support TMK Through Giving →</Link><Link className="tmk-impact-link" to="/get-involved">Partner With The Mills Korner →</Link></div></div>
     </section>
   </div>
 }

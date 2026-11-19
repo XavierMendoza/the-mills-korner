@@ -48,7 +48,7 @@ export default function StoriesListPage() {
     </section>
 
     <section className="tmk-stories-section tmk-stories-closing">
-      <div className="tmk-wrap"><p className="tmk-stories-eyebrow">Meet the people behind the work</p><h2>Get to Know<br />The Mills Korner</h2><div className="tmk-stories-actions"><Link className="tmk-stories-button" to="/about">Meet Kevin &amp; Read His Story <span aria-hidden="true">↗</span></Link><Link className="tmk-stories-link" to="/impact">See TMK's Kommunity Impact →</Link><Link className="tmk-stories-link" to="/opportunity">Explore TMK Opportunities →</Link><Link className="tmk-stories-link" to="/#giving">Support TMK Through Giving →</Link></div></div>
+      <div className="tmk-wrap"><p className="tmk-stories-eyebrow">Meet the people behind the work</p><h2>Get to Know<br />The Mills Korner</h2><div className="tmk-stories-actions"><Link className="tmk-stories-button" to="/about">Meet Kevin &amp; Read His Story <span aria-hidden="true">↗</span></Link><Link className="tmk-stories-link" to="/impact">See TMK's Kommunity Impact →</Link><Link className="tmk-stories-link" to="/opportunity">Explore TMK Opportunities →</Link><Link className="tmk-stories-link" to="/donate">Support TMK Through Giving →</Link></div></div>
     </section>
   </div>
 }
