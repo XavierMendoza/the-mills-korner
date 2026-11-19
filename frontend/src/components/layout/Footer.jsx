@@ -9,6 +9,6 @@ export default function Footer() {
       <nav aria-label="Footer navigation"><Link to="/about">Meet Kevin &amp; Read His Story</Link><Link to="/opportunity">Find Your TMK Opportunity</Link><Link to="/impact">See TMK's Kommunity Impact</Link><Link to="/stories">Read TMK Success Stories</Link><Link to="/partners">Meet TMK's Partners</Link><Link to="/events">View Upcoming TMK Events</Link></nav>
       <div className="tmk-footer-connect"><h3>Stay Connected With TMK.</h3><Link to="/contact">Get Kevin's Kontact Information →</Link><Link to="/get-involved">Get Involved With TMK →</Link><Link to="/#giving">Support TMK Through Giving →</Link></div>
     </div>
-    <div className="tmk-wrap tmk-footer-bottom"><p>© {new Date().getFullYear()} The Mills Korner.</p>{!['/', '/about', '/opportunity', '/impact', '/stories', '/partners'].includes(pathname) && <p>Interior-page photography is representative and does not depict TMK participants.</p>}</div>
+    <div className="tmk-wrap tmk-footer-bottom"><p>© {new Date().getFullYear()} The Mills Korner.</p>{!['/', '/about', '/opportunity', '/impact', '/stories', '/partners', '/events'].includes(pathname) && <p>Interior-page photography is representative and does not depict TMK participants.</p>}</div>
   </footer>
 }
