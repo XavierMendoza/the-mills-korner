@@ -45,7 +45,7 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <section className="tmk-involved-band tmk-involved-dark" id="participate" aria-labelledby="involved-contact">
+      <section className="tmk-involved-band tmk-involved-dark" id="participate" tabIndex={-1} aria-labelledby="involved-contact">
         <div className="tmk-wrap tmk-involved-contact">
           <TmkPhoto name="kevin" sizes="(max-width: 768px) 90vw, 30vw" />
           <div>

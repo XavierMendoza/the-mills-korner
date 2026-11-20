@@ -11,6 +11,7 @@ const previewMetrics = impactMetrics.filter(metric => ['metric-1', 'metric-2', '
 
 export default function DonatePage() {
   const { hash, key } = useLocation()
+  const previousHash = useRef(hash)
   const onceHeading = useRef(null)
   const monthlyHeading = useRef(null)
 
@@ -19,9 +20,11 @@ export default function DonatePage() {
     if (heading) {
       heading.focus({ preventScroll: true })
       heading.scrollIntoView({ block: 'start', behavior: 'instant' })
-    } else if (!hash) {
-      window.scrollTo({ top: 0, behavior: 'instant' })
+    } else if (!hash && previousHash.current) {
+      // A plain Donate link can clear a section jump without changing routes.
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     }
+    previousHash.current = hash
   }, [hash, key])
 
   return (

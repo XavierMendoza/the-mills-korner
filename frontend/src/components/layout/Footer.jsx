@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { opportunities } from '../../data/opportunities.js'
 import NewsletterSignup from '../public/NewsletterSignup.jsx'
 export default function Footer() {
   const { pathname } = useLocation()
@@ -9,6 +10,6 @@ export default function Footer() {
       <nav aria-label="Footer navigation"><Link to="/about">Meet Kevin &amp; Read His Story</Link><Link to="/opportunity">Find Your TMK Opportunity</Link><Link to="/impact">See TMK's Kommunity Impact</Link><Link to="/stories">Read TMK Success Stories</Link><Link to="/partners">Meet TMK's Partners</Link><Link to="/events">View Upcoming TMK Events</Link></nav>
       <div className="tmk-footer-connect"><h3>Stay Connected With TMK.</h3><Link to="/contact">Kontact The Mills Korner →</Link><Link to="/get-involved">Get Involved With TMK →</Link><Link to="/donate">Support TMK Through Giving →</Link></div>
     </div>
-    <div className="tmk-wrap tmk-footer-bottom"><p>© {new Date().getFullYear()} The Mills Korner.</p>{!['/', '/about', '/opportunity', '/impact', '/stories', '/partners', '/events', '/get-involved', '/donate'].includes(pathname) && <p>Interior-page photography is representative and does not depict TMK participants.</p>}</div>
+    <div className="tmk-wrap tmk-footer-bottom"><p>© {new Date().getFullYear()} The Mills Korner.</p>{!['/', '/about', '/opportunity', '/impact', '/stories', '/partners', '/events', '/get-involved', '/donate', '/contact'].includes(pathname) && !opportunities.some(({ slug }) => pathname === `/opportunity/${slug}`) && <p>Interior-page photography is representative and does not depict TMK participants.</p>}</div>
   </footer>
 }

@@ -27,7 +27,7 @@ export default function OpportunityListPage() {
       </div>
     </section>
 
-    <section id="opportunity-areas" className="tmk-op-section" aria-labelledby="areas-title">
+    <section id="opportunity-areas" tabIndex={-1} className="tmk-op-section" aria-labelledby="areas-title">
       <div className="tmk-wrap">
         <p className="tmk-op-eyebrow">Five areas of opportunity</p>
         <h2 id="areas-title">Different paths.<br />Room to grow.</h2>

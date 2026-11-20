@@ -32,7 +32,7 @@ export default function AboutPage() {
       </div>
     </section>
 
-    <section id="kevins-story" className="tmk-about-section">
+    <section id="kevins-story" tabIndex={-1} className="tmk-about-section">
       <div className="tmk-wrap tmk-about-editorial">
         <div><p className="tmk-about-eyebrow">01 / A personal commitment</p><h2>He sees something<br />of himself.</h2></div>
         <div className="tmk-about-prose">

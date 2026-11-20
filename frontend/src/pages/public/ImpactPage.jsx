@@ -23,7 +23,7 @@ export default function ImpactPage() {
       </div>
     </section>
 
-    <section id="verified-impact" className="tmk-impact-section tmk-impact-evidence" aria-labelledby="evidence-title">
+    <section id="verified-impact" tabIndex={-1} className="tmk-impact-section tmk-impact-evidence" aria-labelledby="evidence-title">
       <div className="tmk-wrap"><p className="tmk-impact-eyebrow">Youth. Families. Volunteers. Leaders. Partnerships.</p><h2 id="evidence-title">Reach made visible.</h2><div className="tmk-impact-metric-grid">{impactMetrics.map(metric => <article key={metric.id}><MetricFigure metric={metric} heading="h3" /></article>)}</div></div>
     </section>
 

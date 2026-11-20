@@ -21,7 +21,7 @@ export default function PartnersPage() {
       </div>
     </section>
 
-    <section id="tmk-supporters" className="tmk-partners-section tmk-partners-supporters" aria-labelledby="supporters-title">
+    <section id="tmk-supporters" tabIndex={-1} className="tmk-partners-section tmk-partners-supporters" aria-labelledby="supporters-title">
       <div className="tmk-wrap tmk-partners-supporter-layout"><div><p className="tmk-partners-eyebrow">With appreciation</p><h2 id="supporters-title">Organizations That Have Supported TMK</h2><p>Legacy supporters recognized on TMK's previous website.</p></div><div className="tmk-partners-logos">{legacySupporters.map(supporter => <figure key={supporter.name}><div><img src={supporter.logo} width={supporter.width} height={supporter.height} loading="lazy" decoding="async" alt={`${supporter.name} logo`} /></div><figcaption>{supporter.name}</figcaption></figure>)}</div></div>
     </section>
 

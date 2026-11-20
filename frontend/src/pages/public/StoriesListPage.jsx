@@ -27,7 +27,7 @@ export default function StoriesListPage() {
       </div>
     </section>
 
-    <section id="tmk-testimonials" className="tmk-stories-section tmk-stories-featured" aria-labelledby="featured-title">
+    <section id="tmk-testimonials" tabIndex={-1} className="tmk-stories-section tmk-stories-featured" aria-labelledby="featured-title">
       <div className="tmk-wrap">
         <p className="tmk-stories-eyebrow">In their own words / Featured excerpt</p>
         <h2 id="featured-title">A Voice on Mentorship</h2>
