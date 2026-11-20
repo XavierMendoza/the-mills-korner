@@ -76,13 +76,13 @@ export default function AboutPage() {
     </section>
 
     <section className="tmk-about-athletics">
-      <TmkPhoto name="huddle" />
+      <TmkPhoto name="football-night-huddle" />
       <div className="tmk-about-feature-copy"><p className="tmk-about-eyebrow">05 / Athletics as a pathway</p><h2>Coaching Beyond<br />the Game</h2><p>The huddle is one place to practice leadership. Discipline, character, teamwork, and responsibility carry into life beyond the field.</p><p>Within TMK's Leadership Development area, athletics offers a setting for mentorship and growth. It is one part of a wider commitment to the young person.</p><Link className="tmk-about-button" to="/opportunity/leadership-development">See How TMK Builds Young Leaders <span aria-hidden="true">↗</span></Link></div>
     </section>
 
     <section className="tmk-about-section">
       <div className="tmk-wrap tmk-about-service">
-        <figure><TmkPhoto name="service" sizes="(max-width: 768px) 90vw, 45vw" /><figcaption>Service and support in the TMK community.</figcaption></figure>
+        <figure><TmkPhoto name="community-event" sizes="(max-width: 768px) 90vw, 45vw" /><figcaption>From the TMK photo collection.</figcaption></figure>
         <div><p className="tmk-about-eyebrow">06 / A heart of service</p><h2>Show up for<br />the whole community.</h2><p>TMK's work reaches beyond athletics. Service, practical help, and support for families are part of the same commitment to young people's futures.</p><p>Mentors and community support help create the relationships and opportunities that young people need to move forward.</p><Link className="tmk-about-link" to="/impact">See TMK's Kommunity Impact →</Link></div>
       </div>
     </section>

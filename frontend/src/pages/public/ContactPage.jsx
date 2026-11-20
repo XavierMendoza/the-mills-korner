@@ -21,7 +21,7 @@ export default function ContactPage() {
             <p className="tmk-kontact-lead">Have a question, a partnership idea, or an interest in supporting the work? Get in touch with TMK directly.</p>
             <a className="tmk-kontact-button" href="#tmk-contact-details">Get in Touch With TMK <span aria-hidden="true">↓</span></a>
           </div>
-          <TmkPhoto name="service" priority sizes="(max-width: 768px) 92vw, 45vw" />
+          <TmkPhoto name="community-event" priority sizes="(max-width: 768px) 92vw, 45vw" />
         </div>
       </section>
 

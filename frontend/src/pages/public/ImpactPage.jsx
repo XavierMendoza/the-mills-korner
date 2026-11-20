@@ -30,7 +30,7 @@ export default function ImpactPage() {
     <section className="tmk-impact-section tmk-impact-action" aria-labelledby="action-title">
       <div className="tmk-wrap">
         <div className="tmk-impact-editorial"><div><p className="tmk-impact-eyebrow">A heart of service</p><h2 id="action-title">Impact You<br />Can See</h2></div><p className="tmk-impact-lead">TMK's work reaches beyond athletics. Service, practical help, and support for families are part of the same commitment to young people's futures.</p></div>
-        <div className="tmk-impact-action-photos"><figure><TmkPhoto name="service" sizes="(max-width: 640px) 90vw, 45vw" /><figcaption>Community service and practical support.</figcaption></figure><figure><img src="/images/tmk/tmk-community-event-portrait-web.webp" width="2000" height="1333" loading="lazy" decoding="async" alt="Two people together at a community gathering" /><figcaption>A moment of community connection.</figcaption></figure></div>
+        <div className="tmk-impact-action-photos"><figure><TmkPhoto name="bench-two" sizes="(max-width: 640px) 90vw, 45vw" /><figcaption>From the TMK photo collection.</figcaption></figure><figure><TmkPhoto name="evening-gathering" sizes="(max-width: 768px) 90vw, 45vw" /><figcaption>A moment of community connection.</figcaption></figure></div>
       </div>
     </section>
 
@@ -43,7 +43,7 @@ export default function ImpactPage() {
 
     <section className="tmk-impact-volunteers">
       <div className="tmk-impact-volunteer-copy"><p className="tmk-impact-eyebrow">Volunteers + leaders</p><h2>People Who<br />Show Up</h2><p>Service, leadership, mentorship, and community participation are part of TMK's work.</p><div className="tmk-impact-volunteer-metrics"><MetricFigure metric={metricsById['metric-3']} /><MetricFigure metric={metricsById['metric-4']} /></div></div>
-      <figure><img src="/images/tmk/tmk-event-booth-web.webp" width="1892" height="2000" loading="lazy" decoding="async" alt="The Mills Korner event booth with a branded table, banner, and canopy" /><figcaption>TMK in the community.</figcaption></figure>
+      <figure><TmkPhoto name="service" sizes="(max-width: 768px) 90vw, 45vw" /><figcaption>TMK in the community.</figcaption></figure>
     </section>
 
     <section className="tmk-impact-section tmk-impact-partnerships">

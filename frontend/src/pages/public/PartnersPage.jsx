@@ -17,7 +17,7 @@ export default function PartnersPage() {
     <section className="tmk-partners-hero" aria-labelledby="partners-title">
       <div className="tmk-wrap">
         <div className="tmk-partners-hero-heading"><div><p className="tmk-partners-eyebrow">Relationships. Resources. Shared purpose.</p><h1 id="partners-title">Partnership Makes<br /><span>More Possible</span></h1></div><div><p className="tmk-partners-lead">Mentors, volunteers, and partners help create the relationships, skills, and opportunities young people need to build successful futures.</p><a className="tmk-partners-link" href="#tmk-supporters">See Who Has Supported TMK <span aria-hidden="true">↓</span></a></div></div>
-        <figure className="tmk-partners-hero-photo"><TmkPhoto name="service" priority sizes="(max-width: 640px) 90vw, 90vw" /><figcaption>TMK community service photography.</figcaption></figure>
+        <figure className="tmk-partners-hero-photo"><TmkPhoto name="community-evening-group" priority sizes="(max-width: 640px) 90vw, 90vw" /><figcaption>From the TMK photo collection.</figcaption></figure>
       </div>
     </section>
 
@@ -26,15 +26,15 @@ export default function PartnersPage() {
     </section>
 
     <section className="tmk-partners-section tmk-partners-why">
-      <div className="tmk-wrap tmk-partners-editorial"><div><p className="tmk-partners-eyebrow">Why partnerships matter</p><h2>Opportunity Grows<br />Through Collaboration</h2><p className="tmk-partners-lead">Shared investment in young people starts with relationships.</p><p>Partnerships with schools, foundations, businesses, cities, and faith communities are part of TMK's institutional model.</p><p>Mentoring, community service, and resources can help expand opportunity for young people.</p></div><figure><img src="/images/tmk/tmk-community-event-portrait-web.webp" width="2000" height="1333" loading="lazy" decoding="async" alt="Two people together at a community gathering" /><figcaption>From TMK's community photography.</figcaption></figure></div>
+      <div className="tmk-wrap tmk-partners-editorial"><div><p className="tmk-partners-eyebrow">Why partnerships matter</p><h2>Opportunity Grows<br />Through Collaboration</h2><p className="tmk-partners-lead">Shared investment in young people starts with relationships.</p><p>Partnerships with schools, foundations, businesses, cities, and faith communities are part of TMK's institutional model.</p><p>Mentoring, community service, and resources can help expand opportunity for young people.</p></div><figure><TmkPhoto name="community-event" sizes="(max-width: 768px) 90vw, 45vw" /><figcaption>From TMK's community photography.</figcaption></figure></div>
     </section>
 
     <section className="tmk-partners-section tmk-partners-reach" aria-labelledby="partnership-metric-title">
-      <div className="tmk-wrap tmk-partners-reach-grid"><div><p className="tmk-partners-eyebrow">Community collaboration</p><p className="tmk-partners-metric-value">{partnershipMetric.prefix}{partnershipMetric.value.toLocaleString('en-US')}{partnershipMetric.suffix}</p><h2 id="partnership-metric-title">{partnershipMetric.name}</h2><p className="tmk-partners-metric-period">{partnershipMetric.description}</p><Link className="tmk-partners-link" to="/impact">See TMK's Kommunity Impact →</Link></div><figure><TmkPhoto name="supplies" sizes="(max-width: 768px) 90vw, 40vw" /><figcaption>Service and practical community support.</figcaption></figure></div>
+      <div className="tmk-wrap tmk-partners-reach-grid"><div><p className="tmk-partners-eyebrow">Community collaboration</p><p className="tmk-partners-metric-value">{partnershipMetric.prefix}{partnershipMetric.value.toLocaleString('en-US')}{partnershipMetric.suffix}</p><h2 id="partnership-metric-title">{partnershipMetric.name}</h2><p className="tmk-partners-metric-period">{partnershipMetric.description}</p><Link className="tmk-partners-link" to="/impact">See TMK's Kommunity Impact →</Link></div><figure><TmkPhoto name="bench-one" sizes="(max-width: 768px) 90vw, 40vw" /><figcaption>From the TMK photo collection.</figcaption></figure></div>
     </section>
 
     <section className="tmk-partners-action">
-      <figure><img src="/images/tmk/tmk-event-booth-web.webp" width="1892" height="2000" loading="lazy" decoding="async" alt="The Mills Korner event booth with a branded table, banner, and canopy" /><figcaption>TMK in the community.</figcaption></figure><div className="tmk-partners-feature-copy"><p className="tmk-partners-eyebrow">Partnership in action</p><h2>Service.<br />Presence.<br />Connection.</h2><p className="tmk-partners-lead">TMK's work reaches beyond athletics.</p><p>Service, practical help, and support for families are part of the same commitment to young people's futures.</p></div>
+      <figure><TmkPhoto name="event-booth" sizes="(max-width: 768px) 90vw, 45vw" /><figcaption>TMK in the community.</figcaption></figure><div className="tmk-partners-feature-copy"><p className="tmk-partners-eyebrow">Partnership in action</p><h2>Service.<br />Presence.<br />Connection.</h2><p className="tmk-partners-lead">TMK's work reaches beyond athletics.</p><p>Service, practical help, and support for families are part of the same commitment to young people's futures.</p></div>
     </section>
 
     <section className="tmk-partners-section tmk-partners-invitation" aria-labelledby="support-ways-title">

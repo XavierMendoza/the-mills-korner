@@ -17,7 +17,7 @@ export default function GetInvolvedPage() {
             <p>Talk with us about how you or your organization can support TMK.</p>
             <a className="tmk-involved-button" href="#participate">Get in Touch With TMK <span aria-hidden="true">↓</span></a>
           </div>
-          <TmkPhoto name="service" priority sizes="(max-width: 768px) 90vw, 46vw" />
+          <TmkPhoto name="football-field-guidance" priority sizes="(max-width: 768px) 90vw, 46vw" />
         </div>
       </section>
 
@@ -71,7 +71,7 @@ export default function GetInvolvedPage() {
             <p>Consistent relationships and guidance help young people recognize possibilities and navigate the choices ahead. Community service and practical help extend that support to families.</p>
             <p>Leadership Development gives young people room to build confidence, responsibility, and character.</p>
           </div>
-          <TmkPhoto name="huddle" sizes="(max-width: 768px) 90vw, 44vw" />
+          <TmkPhoto name="bench-two" sizes="(max-width: 768px) 90vw, 44vw" />
         </div>
       </section>
 

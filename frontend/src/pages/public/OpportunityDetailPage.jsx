@@ -5,10 +5,11 @@ import TmkPhoto from '../../components/public/TmkPhoto.jsx'
 import '../../styles/tmk-opportunity-detail.css'
 
 const heroPhotos = {
-  'academic-success': 'service',
-  'financial-capability': 'supplies',
+  'academic-success': 'formal-light-blue',
+  'financial-capability': 'youth-pair',
   'leadership-development': 'huddle',
-  mentorship: 'kevin',
+  wellness: 'bench-one',
+  mentorship: 'football-field-guidance',
 }
 const academicMetric = impactMetrics.find(metric => metric.id === 'metric-6')
 const heroSizes = '(max-width: 768px) 92vw, 48vw'
@@ -40,22 +41,16 @@ export default function OpportunityDetailPage() {
             <h1>{item.title}</h1>
             <p className="tmk-opp-detail-lead">{item.short_description}</p>
           </div>
-          {slug === 'wellness' ? (
-            <img
-              src="/images/tmk/tmk-youth-group-bench-2-web.webp"
-              alt="Three young people sitting together on an outdoor bench"
-              width={1500}
-              height={2000}
-              decoding="async"
-              fetchPriority="high"
-            />
-          ) : <TmkPhoto name={heroPhotos[slug]} priority sizes={heroSizes} />}
+          <TmkPhoto name={heroPhotos[slug]} priority sizes={heroSizes} />
         </div>
       </header>
 
       <section className="tmk-wrap tmk-opp-detail-band tmk-opp-detail-split" aria-labelledby="opportunity-overview">
         <h2 id="opportunity-overview">Why It Matters</h2>
         <p className="tmk-opp-detail-lead">{item.description}</p>
+        {slug === 'leadership-development' && (
+          <TmkPhoto name="field-action-drill" className="tmk-opp-detail-action-photo" sizes={heroSizes} />
+        )}
       </section>
 
       {slug === 'academic-success' && (

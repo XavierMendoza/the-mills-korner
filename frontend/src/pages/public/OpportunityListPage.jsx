@@ -20,8 +20,8 @@ export default function OpportunityListPage() {
           <div className="tmk-op-hero-intro"><p className="tmk-op-lead">TMK creates pathways that help young people build the relationships, skills, and confidence needed for successful futures.</p><a className="tmk-op-link" href="#opportunity-areas">Find Your TMK Opportunity <span aria-hidden="true">↓</span></a></div>
         </div>
         <div className="tmk-op-hero-photos">
-          <TmkPhoto name="service" priority sizes="(max-width: 640px) 90vw, 60vw" />
-          <img src="/images/tmk/tmk-youth-group-bench-2-web.webp" width="1500" height="2000" alt="Three young people sitting together on an outdoor bench" loading="lazy" decoding="async" sizes="(max-width: 640px) 90vw, 35vw" />
+          <TmkPhoto name="youth-pair" priority sizes="(max-width: 640px) 90vw, 60vw" />
+          <TmkPhoto name="bench-two" sizes="(max-width: 640px) 90vw, 35vw" />
         </div>
         <p className="tmk-op-photo-note">Relationships. Skills. Opportunity.</p>
       </div>

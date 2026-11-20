@@ -5,7 +5,7 @@ import TmkPhoto from './TmkPhoto.jsx'
 
 const slides = [
   { image: 'service', label: 'A heart of service' },
-  { image: 'huddle', label: 'Leadership in the huddle' },
+  { image: 'football-field-group', label: 'On the field' },
   { image: 'champions', label: 'Growing stronger together' },
 ]
 export default function HeroCarousel() {
@@ -22,9 +22,9 @@ export default function HeroCarousel() {
         {slides.map((slide, index) => <div key={slide.image} className={`tmk-hero-slide${index === carousel.active ? ' is-active' : ''}`} aria-hidden={index !== carousel.active}>
           <TmkPhoto name={slide.image} priority={index === 0} />
         </div>)}
-        <p className="tmk-photo-caption" aria-live="off"><span>0{carousel.active + 1} / 03</span>{slides[carousel.active].label}</p>
+        <p className="tmk-photo-caption" aria-live="off">{slides[carousel.active].label}</p>
       </div>
-      <CarouselControls carousel={carousel} labels={slides.map(slide => slide.label)} name="hero image" />
+      <CarouselControls carousel={carousel} name="hero image" />
     </div>
   </section>
 }

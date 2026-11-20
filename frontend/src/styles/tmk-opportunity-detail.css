@@ -64,3 +64,20 @@
 @media (max-width: 430px) {
   .tmk-opp-detail-actions { flex-direction: column; align-items: stretch; }
 }
+
+.tmk-opp-detail header img[src*="formal-light-blue"] {
+  max-height: 490px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #252525;
+}
+.tmk-opp-detail header img[src*="football-field-guidance"] { object-position: center 42%; }
+.tmk-opp-detail .tmk-opp-detail-action-photo {
+  grid-column: 2;
+  max-width: 360px;
+  aspect-ratio: 1.05;
+  object-position: center 57%;
+}
+@media (max-width: 768px) {
+  .tmk-opp-detail .tmk-opp-detail-action-photo { grid-column: 1; }
+}
