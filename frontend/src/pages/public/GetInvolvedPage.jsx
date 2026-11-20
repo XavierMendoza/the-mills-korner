@@ -17,7 +17,7 @@ export default function GetInvolvedPage() {
             <p>Talk with us about how you or your organization can support TMK.</p>
             <a className="tmk-involved-button" href="#participate">Get in Touch With TMK <span aria-hidden="true">↓</span></a>
           </div>
-          <TmkPhoto name="football-field-guidance" priority sizes="(max-width: 768px) 90vw, 46vw" />
+          <TmkPhoto name="huddle" priority sizes="(max-width: 768px) 90vw, 46vw" />
         </div>
       </section>
 

@@ -48,14 +48,14 @@ export default function OpportunityListPage() {
     </section>
 
     <section className="tmk-op-athletics">
-      <TmkPhoto name="huddle" />
+      <TmkPhoto name="football-night-huddle" />
       <div className="tmk-op-feature-copy"><p className="tmk-op-eyebrow">A pathway within Leadership Development</p><h2>Leadership Is Built<br />in the Moment</h2><p className="tmk-op-lead">Athletics is one setting where young people practice the qualities of leadership.</p><p>Discipline. Responsibility. Teamwork. Confidence. Character.</p><Link className="tmk-op-button" to="/opportunity/leadership-development">Explore Leadership Development <span aria-hidden="true">↗</span></Link></div>
     </section>
 
     <section className="tmk-op-section tmk-op-mentorship">
       <div className="tmk-wrap tmk-op-mentorship-grid">
         <div><p className="tmk-op-eyebrow">Trust. Consistency. Connection.</p><h2>Relationships Change What Young People Believe Is Possible</h2><p className="tmk-op-lead">For Kevin Mills, it starts with a relationship.</p><p>Consistent connection and trusted support help young people move forward. Guidance and encouragement can help young people recognize possibilities and navigate the choices ahead.</p><Link className="tmk-op-button" to="/opportunity/mentorship">Explore TMK Mentorship <span aria-hidden="true">↗</span></Link></div>
-        <figure><TmkPhoto name="kevin" sizes="(max-width: 640px) 90vw, 35vw" /><figcaption>Kevin Mills / Founder. Mentor. Educator. Coach.</figcaption></figure>
+        <figure><TmkPhoto name="huddle" sizes="(max-width: 640px) 90vw, 35vw" /><figcaption>Kevin Mills with the Bulldogs football team.</figcaption></figure>
       </div>
     </section>
 

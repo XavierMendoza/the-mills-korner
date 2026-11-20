@@ -37,7 +37,7 @@
 .tmk-involved-dark { color: white; background: var(--involved-black); }
 .tmk-involved-dark p { color: #ddd; }
 .tmk-involved img { display: block; width: 100%; height: auto; border-bottom: 5px solid var(--involved-red); }
-.tmk-involved-hero img { aspect-ratio: 1.1; object-fit: cover; object-position: center 42%; }
+.tmk-involved-hero img { aspect-ratio: 1.1; object-fit: cover; object-position: 15% 42%; }
 .tmk-involved-contact img { max-width: 340px; }
 .tmk-involved-giving { background: #ebe7e1; border-top: 4px solid var(--involved-red); }
 .tmk-involved-giving-note { margin: 1.5rem 0 0; padding: 1rem 1.25rem; border-left: 4px solid var(--involved-red); background: white; font-weight: 700; }

@@ -5,7 +5,7 @@ import TmkPhoto from './TmkPhoto.jsx'
 
 const slides = [
   { image: 'service', label: 'A heart of service' },
-  { image: 'football-field-group', label: 'On the field' },
+  { image: 'huddle', label: 'Coaching the Bulldogs', photoClassName: 'tmk-hero-coaching-photo' },
   { image: 'champions', label: 'Growing stronger together' },
 ]
 export default function HeroCarousel() {
@@ -20,7 +20,7 @@ export default function HeroCarousel() {
     <div className="tmk-hero-carousel" role="region" aria-label="TMK in action" aria-roledescription="carousel" {...carousel.interaction}>
       <div className="tmk-hero-photos">
         {slides.map((slide, index) => <div key={slide.image} className={`tmk-hero-slide${index === carousel.active ? ' is-active' : ''}`} aria-hidden={index !== carousel.active}>
-          <TmkPhoto name={slide.image} priority={index === 0} />
+          <TmkPhoto name={slide.image} className={slide.photoClassName} priority={index === 0} />
         </div>)}
         <p className="tmk-photo-caption" aria-live="off">{slides[carousel.active].label}</p>
       </div>

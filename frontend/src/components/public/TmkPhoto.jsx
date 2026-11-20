@@ -1,7 +1,7 @@
 const photos = {
   service: [1440, 1800, 'TMK community service group beside food and supplies'],
   supplies: [1440, 1800, 'Community distribution table with food and supplies'],
-  huddle: [1448, 1086, 'A coach addresses a youth football huddle'],
+  huddle: [1448, 1086, 'Kevin Mills addresses Bulldogs football players in red-and-white uniforms'],
   champions: [1448, 1086, 'Youth football team and adults gathered around a trophy'],
   kevin: [1586, 2000, 'Kevin Mills, founder of The Mills Korner'],
   'formal-light-blue': [245, 640, 'Person in a light-blue suit', 'tmk-formal-light-blue-web.webp'],

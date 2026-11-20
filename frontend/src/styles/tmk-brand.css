@@ -297,6 +297,8 @@ interior designs stay intact. */
   object-position:50% 40%;
 }
 
+.tmk-hero-slide .tmk-hero-coaching-photo { object-position:15% 40%; }
+
 .tmk-photo-caption {
   position:absolute;
   z-index:2;

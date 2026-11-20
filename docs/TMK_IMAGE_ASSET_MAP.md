@@ -87,10 +87,10 @@ All 51 pre-existing image files retain their original bytes. The new descriptive
 | `Screenshot 2026-11-08 at 1.55.26 PM.png` | `tmk-field-action-turn-web.webp` | 481 × 618 | Athlete changing direction on a grass field | Athletics pathway | Home |
 | `Screenshot 2026-11-08 at 1.56.47 PM.png` | `tmk-football-team-group-web.webp` | 640 × 340 | Football team assembled on a grass field | Team and community archive | Stories, Events |
 | `Screenshot 2026-11-08 at 1.58.24 PM.png` | `tmk-field-action-drill-web.webp` | 404 × 640 | Athlete running a drill on a grass field | Athletics pathway in action | Leadership Development |
-| `Screenshot 2026-11-08 at 2.01.21 PM.png` | `tmk-football-field-guidance-web.webp` | 415 × 640 | A football being handed to a player during a field session | Coaching and guidance | Mentorship, Get Involved |
-| `Screenshot 2026-11-08 at 2.04.47 PM.png` | `tmk-football-field-group-web.webp` | 520 × 480 | Three people standing together on a football field | Coaching and field context | Home, Stories |
+| `Screenshot 2026-11-08 at 2.01.21 PM.png` | `tmk-football-field-guidance-web.webp` | 415 × 640 | A football being handed to a player during a field session | Coaching and guidance | Mentorship |
+| `Screenshot 2026-11-08 at 2.04.47 PM.png` | `tmk-football-field-group-web.webp` | 520 × 480 | Three people standing together on a football field | Coaching and field context | Stories |
 | `Screenshot 2026-11-08 at 2.05.43 PM.png` | `tmk-community-evening-group-web.webp` | 640 × 429 | Four people posing together at an evening gathering | Community and connection | Stories, Partners |
-| `Screenshot 2026-11-08 at 2.13.41 PM.png` | `tmk-football-night-huddle-web.webp` | 640 × 474 | Football players and a coach gathered under stadium lights | Coaching history | About |
+| `Screenshot 2026-11-08 at 2.13.41 PM.png` | `tmk-football-night-huddle-web.webp` | 640 × 474 | Football players and a coach gathered under stadium lights | Coaching history | About, Opportunity landing (athletics) |
 
 ### Previously indexed images currently in use
 Each row maps an original or retained conversion to the optimized public file selected by the current site. The tables above record the source dimensions and standalone WebP dimensions. In the responsive pairs below, dimensions are listed in filename order.
@@ -99,9 +99,9 @@ Each row maps an original or retained conversion to the optimized public file se
 | --- | --- | --- |
 | `tmk-community-service-group.jpg` | `brand/service-{640,1280}.webp` (640 × 800, 1280 × 1600) | Home, Impact, Donate |
 | `tmk-community-service-supplies.jpg` | `brand/supplies-{640,1280}.webp` (640 × 800, 1280 × 1600) | Home, Impact, Donate |
-| `tmk-football-huddle.png` | `brand/huddle-{640,1280}.webp` (640 × 480, 1280 × 960) | Opportunity landing, Leadership Development |
+| `tmk-football-huddle.png` | `brand/huddle-{640,1280}.webp` (640 × 480, 1280 × 960) | Home hero, Opportunity landing (mentorship), Leadership Development, Get Involved hero |
 | `tmk-youth-champions.png` | `brand/champions-{640,1280}.webp` (640 × 480, 1280 × 960) | Home, Opportunity landing |
-| `tmk-professional-headshot.png` | `brand/kevin-{640,1280}.webp` (640 × 807, 1280 × 1614) | Home, About, Opportunity landing, Get Involved, Kontact |
+| `tmk-professional-headshot.png` | `brand/kevin-{640,1280}.webp` (640 × 807, 1280 × 1614) | Home, About, Get Involved, Kontact |
 | `tmk-community-event-portrait.jpg` | `tmk-community-event-portrait-web.webp` | About, Partners, Kontact |
 | `tmk-evening-gathering.jpg` | `tmk-evening-gathering-web.webp` | Impact, Events |
 | `tmk-event-booth-original.heic`, `tmk-event-booth.jpg` | `tmk-event-booth-web.webp` | Partners, Events |
@@ -117,4 +117,4 @@ Each row maps an original or retained conversion to the optimized public file se
 - `community-embrace-illustration.jpg` is retained as artwork. This pass uses documentary photography on public pages.
 - Larger `-web.webp` huddle, champions, and founder variants remain available. The listed pages serve the smaller responsive derivatives.
 
-The service group now appears on three pages, down from eleven. Service supplies appear on three, down from five. The field huddle appears on two, down from five. Home, Impact, and Donate retain the service images to connect the site’s introduction, community distribution, and giving. The community-event portrait connects the About, Partners, and Kontact pages to TMK’s community. The two bench photographs support the relationship and community sections. Kevin’s official portrait and the brand marks are intentional exceptions.
+The service group now appears on three pages, down from eleven. Service supplies appear on three, down from five. The Bulldogs coaching photo appears once each on four pages, including the Opportunity mentorship section. The Opportunity athletics section uses the stadium huddle to show a different scene. Home, Impact, and Donate retain the service images to connect the site’s introduction, community distribution, and giving. The community-event portrait connects the About, Partners, and Kontact pages to TMK’s community. The two bench photographs support the relationship and community sections. Kevin’s official portrait and the brand marks are intentional exceptions.
