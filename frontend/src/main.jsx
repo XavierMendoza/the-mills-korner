@@ -6,6 +6,7 @@ import App from './App.jsx'
 import { AuthProvider } from './auth/AuthProvider.jsx'
 import './styles/global.css'
 import './styles/public-refresh.css'
+import './styles/tmk-brand.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

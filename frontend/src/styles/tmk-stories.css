@@ -1,0 +1,92 @@
+.tmk-stories-page {
+  --stories-black: #141414;
+  --stories-paper: #f5f3ef;
+  --stories-red: #c92332;
+  color: var(--stories-black);
+  background: var(--stories-paper);
+}
+
+.tmk-stories-page :is(h1, h2, a) { color: inherit; }
+.tmk-stories-page a { font-weight: 725; text-underline-offset: .25em; }
+.tmk-stories-page :is(h1, h2) {
+  margin: 0 0 1.25rem;
+  font-weight: 850;
+  line-height: 1.05;
+  letter-spacing: -.045em;
+}
+.tmk-stories-page h1 { font-size: clamp(3rem, 5.7vw, 5.5rem); text-wrap: balance; }
+.tmk-stories-page h2 { font-size: clamp(2rem, 4vw, 3.65rem); }
+.tmk-stories-lead { max-width: 37ch; color: #ddd; font-size: clamp(1.125rem, 2vw, 1.45rem); }
+.tmk-stories-hero, .tmk-stories-closing { color: white; background: var(--stories-black); }
+.tmk-stories-hero h1 span { display: block; color: #ff8791; }
+
+.tmk-stories-section, .tmk-stories-hero { padding-block: clamp(3.5rem, 7vw, 7rem); }
+.tmk-stories-hero-grid, .tmk-story-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 7vw, 7rem);
+}
+.tmk-stories-hero-grid { align-items: center; }
+.tmk-story-photo { margin: 1.75rem 0 0; }
+.tmk-stories-hero .tmk-story-photo { margin-top: 0; }
+.tmk-story-photo img { display: block; width: 100%; height: auto; border-bottom: 5px solid var(--stories-red); }
+.tmk-story-photo figcaption { margin-top: .55rem; font-size: .85rem; }
+.tmk-story-photo img[src*="football-number-39"] { max-width: 300px; }
+
+.tmk-stories-index { padding-block: clamp(2rem, 4vw, 4rem); }
+.tmk-stories-index h2 { font-size: clamp(1.75rem, 3vw, 2.65rem); }
+.tmk-stories-index ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .75rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tmk-stories-index a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+.tmk-story { border-top: 3px solid var(--stories-red); }
+.tmk-story:nth-child(odd) { background: white; }
+.tmk-story:nth-child(4n + 2), .tmk-story:nth-child(4n + 3) {
+  background: var(--stories-black);
+  color: white;
+}
+.tmk-story:nth-child(even) .tmk-story-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+}
+.tmk-story:nth-child(even) .tmk-story-aside { grid-column: 2; grid-row: 1; }
+.tmk-story:nth-child(even) .tmk-story-full { grid-column: 1; grid-row: 1; }
+.tmk-stories-eyebrow { color: #a71927; font-weight: 800; text-transform: uppercase; font-size: .8rem; letter-spacing: .09em; }
+.tmk-story-pull { margin: 0; color: #a71927; font-weight: 780; font-size: clamp(1.35rem, 2.7vw, 2.5rem); line-height: 1.18; letter-spacing: -.025em; }
+.tmk-story:nth-child(4n + 2) .tmk-story-pull, .tmk-story:nth-child(4n + 3) .tmk-story-pull { color: #ff8791; }
+.tmk-story-full {
+  margin: 0;
+  max-width: 64ch;
+  font-size: clamp(1.025rem, 1.3vw, 1.16rem);
+  line-height: 1.72;
+}
+.tmk-story-full > blockquote { margin: 0; }
+.tmk-story-full > blockquote > p:last-child { margin-bottom: 0; }
+.tmk-story-epigraph {
+  margin: 0 0 1.5rem;
+  padding: .25rem 0 .25rem 1rem;
+  border-left: 3px solid var(--stories-red);
+}
+.tmk-story-epigraph blockquote, .tmk-story-epigraph p { margin: 0; }
+.tmk-story-epigraph figcaption { margin-top: .5rem; font-size: .9em; font-weight: 700; }
+.tmk-stories-actions { display: flex; flex-wrap: wrap; gap: .75rem 2rem; }
+.tmk-stories-actions a { min-height: 44px; display: inline-flex; align-items: center; }
+.tmk-stories-page :is([id], a) { scroll-margin-top: 1.5rem; }
+.site-shell .tmk-stories-page :is(a, [tabindex]):focus-visible { outline: 3px solid #c92332; outline-offset: 4px; }
+.site-shell .tmk-stories-page :is(.tmk-stories-hero, .tmk-stories-closing) a:focus-visible { outline-color: white; }
+
+@media (max-width: 768px) {
+  .tmk-stories-page h1 { font-size: clamp(2.55rem, 12vw, 4rem); }
+  .tmk-stories-hero-grid, .tmk-story-layout, .tmk-story:nth-child(even) .tmk-story-layout { grid-template-columns: minmax(0, 1fr); }
+  .tmk-story:nth-child(even) :is(.tmk-story-aside, .tmk-story-full) { grid-area: auto; }
+  .tmk-stories-index ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

@@ -17,26 +17,7 @@
 .site-shell .site-nav__link--cta { margin-top: 0; }
 .site-shell .site-header__inner { padding-block: 1.1rem; }
 
-/* Stationary messaging over manually selected images: no autoplay or text shifts. */
-.hero-carousel { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: center; min-height: 45rem; color: var(--color-ivory); background: var(--color-forest-dark); }
-.hero-carousel__photos, .hero-carousel__slide { position: absolute; inset: 0; z-index: -2; }
-.hero-carousel__slide { opacity: 0; transition: opacity 600ms ease; }
-.hero-carousel__slide.is-active { opacity: 1; }
-.hero-carousel__slide img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
-.hero-carousel::after { position: absolute; z-index: -1; inset: 0; content: ''; background: linear-gradient(90deg, rgba(12, 31, 24, 0.96) 0%, rgba(12, 31, 24, 0.83) 45%, rgba(12, 31, 24, 0.25) 100%), linear-gradient(0deg, rgba(12, 31, 24, 0.9), transparent 45%); }
-.hero-carousel__content { width: min(100%, 85rem); margin-inline: auto; padding: 5rem max(1.5rem, calc((100vw - 75rem) / 2)) 2.5rem; }
-.hero-carousel h1 { max-width: 55rem; color: var(--color-ivory); font-size: clamp(2.35rem, 4.6vw, 4.5rem); line-height: 1.08; letter-spacing: -0.045em; }
-.hero-carousel__lead { max-width: 39rem; margin-bottom: 2rem; font-size: clamp(1rem, 1.5vw, 1.22rem); line-height: 1.7; }
-.site-shell :is(.hero-carousel, .page-hero, .featured-quote, .pathway-card, .home-section--forest, .home-cta) .page-eyebrow { color: #e0bc76; }
-.hero-carousel__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1.5rem max(1.5rem, calc((100% - 75rem) / 2)) 0; padding: 1.4rem 0; border-top: 1px solid rgba(250, 246, 235, 0.35); }
-.hero-carousel__theme { display: flex; align-items: center; gap: 1.5rem; margin: 0; font-size: 0.95rem; }
-.hero-carousel__theme span { color: #e0bc76; font-size: 0.75rem; letter-spacing: 0.12em; white-space: nowrap; }
-.carousel-controls { display: flex; align-items: center; flex-shrink: 0; }
-.carousel-controls button { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border: 1px solid rgba(250, 246, 235, 0.5); background: transparent; color: var(--color-ivory); font-size: 1.3rem; }
-.carousel-controls .carousel-dot { width: 2.75rem; border: 0; }
-.carousel-dot span { display: block; width: 0.5rem; height: 0.5rem; border: 1px solid #e0bc76; border-radius: 50%; }
-.carousel-dot[aria-pressed="true"] span { background: #e0bc76; }
-.hero-carousel__disclosure { margin: 0 max(1.5rem, calc((100% - 75rem) / 2)) 1.25rem; color: #ddd8cb; font-size: 0.7rem; }
+.site-shell :is(.page-hero, .featured-quote, .pathway-card, .home-section--forest, .home-cta) .page-eyebrow { color: #e0bc76; }
 
 /* Page heroes support a wide image and an editorial split variant. */
 .site-shell .page-hero { position: relative; isolation: isolate; }
@@ -122,14 +103,11 @@
   .opportunity-card, .opportunity-card:nth-child(4), .opportunity-card:nth-child(5) { grid-column: auto; }
   .opportunity-card:nth-child(n+4) .opportunity-card__image { aspect-ratio: 4 / 3; }
   .partner-categories { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .hero-carousel h1 { max-width: 46rem; }
 }
 @media (max-width: 55rem) {
   .newsletter-confirmation { grid-template-columns: minmax(0, 1fr); }
   .newsletter-confirmation__copy { padding: clamp(1.5rem, 5vw, 3rem); }
   .newsletter-confirmation__image { min-height: 0; aspect-ratio: 16 / 9; }
-  .hero-carousel { min-height: 40rem; }
-  .hero-carousel__content { padding-top: 3.5rem; }
   .page-hero--split .page-hero__photo { left: 0; width: 100%; }
   .page-hero--split .page-hero__inner { max-width: 40rem; }
   .page-hero--split::after { background: rgba(15, 37, 28, 0.82); }
@@ -142,13 +120,6 @@
 @media (max-width: 40rem) {
   .opportunity-grid { grid-template-columns: minmax(0, 1fr); }
   .partner-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .hero-carousel { min-height: 0; }
-  .hero-carousel__content { padding: 3rem 1rem 1.5rem; }
-  .hero-carousel h1 { font-size: clamp(2.05rem, 7.2vw, 2.8rem); overflow-wrap: normal; }
-  .hero-carousel__bottom { align-items: flex-start; flex-direction: column; margin-inline: 1rem; }
-  .hero-carousel__disclosure { margin-inline: 1rem; }
-  .hero-carousel::after { background: rgba(12, 31, 24, 0.83); }
-  .hero-carousel__slide img { object-position: 60% center; }
   .page-hero--photo { min-height: 24rem; padding-block: 3rem; }
   .page-hero--photo::after { background: rgba(15, 37, 28, 0.83); }
   .page-hero--photo h1 { font-size: clamp(2.1rem, 9vw, 3rem); }

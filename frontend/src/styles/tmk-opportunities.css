@@ -1,0 +1,103 @@
+/* Opportunities landing page only; detail pages keep their existing presentation. */
+.tmk-opportunities-page {
+  --op-black: #141414;
+  --op-paper: #f5f3ef;
+  --op-red: #c92332;
+  color: var(--op-black);
+  background: var(--op-paper);
+}
+.tmk-opportunities-page :is(h1, h2, h3, a) { color: inherit; }
+.site-shell .tmk-opportunities-page a:focus-visible { outline: 3px solid var(--op-red); outline-offset: 5px; box-shadow: 0 0 0 2px white; }
+.tmk-opportunities-page h1 { font-size: clamp(2.8rem, 5.2vw, 5rem); font-weight: 850; line-height: 1.02; letter-spacing: -.06em; margin: 0; }
+.tmk-opportunities-page h2 { font-size: clamp(2.3rem, 4.2vw, 4rem); font-weight: 850; line-height: 1.04; letter-spacing: -.05em; margin: 0 0 1.75rem; }
+.tmk-opportunities-page h3 { font-size: clamp(1.8rem, 2.5vw, 2.5rem); line-height: 1.1; letter-spacing: -.04em; }
+.tmk-opportunities-page p { max-width: 60ch; }
+.tmk-opportunities-page .tmk-op-eyebrow { margin: 0 0 1.5rem; color: #a91927; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .15em; }
+.tmk-op-lead { font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.65; }
+.tmk-opportunities-page .tmk-op-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 1rem 1.3rem; background: var(--op-red); color: white; font-weight: 750; line-height: 1.4; text-decoration: none; }
+.tmk-opportunities-page .tmk-op-button:hover { background: #a51927; }
+.tmk-opportunities-page .tmk-op-link { display: inline-block; padding-block: .6rem; font-size: .95rem; font-weight: 750; text-decoration-color: var(--op-red); text-underline-offset: .4rem; }
+.tmk-op-section { padding-block: clamp(4rem, 7vw, 7rem); }
+.tmk-op-hero { padding-block: clamp(3rem, 5vw, 5rem) 2rem; color: white; background: var(--op-black); }
+.tmk-op-hero-heading { display: grid; grid-template-columns: 1.5fr .8fr; align-items: end; gap: 4rem; margin-bottom: 3rem; }
+.tmk-op-hero .tmk-op-eyebrow { color: #ff8791; }
+.tmk-op-hero h1 span { color: #ff7b88; }
+.tmk-op-hero-intro { padding-bottom: .25rem; }
+.tmk-op-hero-intro p { color: #d1d1d1; }
+.tmk-op-hero-photos { display: grid; grid-template-columns: 1.4fr .8fr; gap: 1rem; }
+.tmk-op-hero-photos img { display: block; width: 100%; height: clamp(300px, 30vw, 420px); object-fit: cover; object-position: center 30%; }
+.tmk-op-hero-photos img:nth-child(2) { object-position: center 35%; }
+.tmk-op-photo-note { margin: 1rem 0 0; color: #bbb; font-size: .75rem; letter-spacing: .06em; }
+.tmk-op-areas { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.tmk-op-area { grid-column: span 7; min-width: 0; border-top: 5px solid var(--op-red); background: white; }
+.tmk-op-area-copy { display: flex; flex-direction: column; height: 100%; padding: clamp(1.5rem, 3vw, 3rem); }
+.tmk-op-number { color: #a91927; font-size: 1.5rem; font-weight: 850; letter-spacing: -.04em; margin-bottom: 2rem; }
+.tmk-op-area h3 { margin: 0 0 1.25rem; }
+.tmk-op-area-short { font-size: 1.15rem; font-weight: 650; margin-bottom: 1.25rem; }
+.tmk-op-area-description { color: #525252; font-size: .95rem; margin-bottom: 2rem; }
+.tmk-op-area-link { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding-top: 1.25rem; border-top: 1px solid #c8c8c8; margin-top: auto; font-size: .9rem; font-weight: 750; text-decoration: none; }
+.tmk-op-area-link:hover { text-decoration: underline; text-underline-offset: .3rem; }
+.tmk-op-area--financial-capability { grid-column: span 5; color: white; background: #252525; }
+.tmk-op-area--financial-capability :is(.tmk-op-number, .tmk-op-area-description) { color: #ddd; }
+.tmk-op-area--financial-capability .tmk-op-number { color: #ff7b88; }
+.tmk-op-area--leadership-development { grid-column: span 12; display: grid; grid-template-columns: .9fr 1fr; background: var(--op-black); color: white; }
+.tmk-op-area--leadership-development .tmk-op-number { color: #ff7b88; }
+.tmk-op-area--leadership-development .tmk-op-area-description { color: #ddd; }
+.tmk-op-area--leadership-development > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.tmk-op-area--wellness { grid-column: span 5; background: #e9e6e0; }
+.tmk-op-area--mentorship { grid-column: span 7; border-left: 5px solid var(--op-red); }
+.tmk-op-connected { background: var(--op-black); color: white; }
+.tmk-op-connected .tmk-op-eyebrow { color: #ff8791; }
+.tmk-op-connected-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.tmk-op-connected-heading > p { color: #ddd; }
+.tmk-op-connections { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; list-style: none; margin: 2rem 0 0; padding: 0; }
+.tmk-op-connections li { min-width: 0; border-top: 3px solid var(--op-red); border-right: 1px solid #555; padding: 1.5rem 1.25rem; font-weight: 700; }
+.tmk-op-connections li:first-child { padding-left: 0; }
+.tmk-op-connections li:last-child { border-right: 0; }
+.tmk-op-connections span { display: block; color: #ff7b88; font-size: .75rem; letter-spacing: .1em; margin-bottom: 1rem; }
+.tmk-op-athletics { display: grid; grid-template-columns: 1.1fr 1fr; background: white; }
+.tmk-op-athletics > img { display: block; width: 100%; height: 100%; min-height: 480px; object-fit: cover; }
+.tmk-op-feature-copy { padding: clamp(2rem, 5vw, 5rem); align-self: center; }
+.tmk-op-feature-copy > p:not(.tmk-op-eyebrow) { color: #525252; }
+.tmk-op-mentorship-grid { display: grid; grid-template-columns: 1.1fr .8fr; gap: clamp(3rem, 7vw, 7rem); align-items: center; }
+.tmk-op-mentorship-grid h2 { max-width: 19ch; }
+.tmk-op-mentorship-grid figure { max-width: 400px; width: 100%; justify-self: end; margin: 0; }
+.tmk-op-mentorship-grid img { display: block; width: 100%; height: auto; border-bottom: 5px solid var(--op-red); }
+.tmk-op-mentorship-grid figcaption { padding-top: .75rem; font-size: .8rem; color: #666; }
+.tmk-op-mentorship .tmk-op-button { margin-top: 1rem; }
+.tmk-op-closing { background: var(--op-red); color: white; }
+.tmk-op-closing .tmk-op-eyebrow { color: white; }
+.tmk-op-actions { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; }
+.tmk-op-closing .tmk-op-button { color: var(--op-black); background: white; }
+.tmk-op-closing .tmk-op-button:hover { background: var(--op-paper); }
+.tmk-op-closing .tmk-op-link { text-decoration-color: white; }
+.site-shell .tmk-op-closing a:focus-visible { outline-color: white; box-shadow: 0 0 0 2px var(--op-black); }
+@media (max-width: 1024px) {
+  .tmk-op-hero-heading { grid-template-columns: 1.4fr .9fr; gap: 2.5rem; }
+  .tmk-op-hero-photos { grid-template-columns: 1.2fr .8fr; }
+  .tmk-op-connections li { padding-inline: .75rem; font-size: .9rem; }
+}
+@media (max-width: 768px) {
+  .tmk-op-hero-heading, .tmk-op-connected-heading, .tmk-op-mentorship-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .tmk-op-hero-intro { max-width: 36rem; }
+  .tmk-op-area--leadership-development { grid-template-columns: 1fr; }
+  .tmk-op-area--leadership-development > img { height: auto; }
+  .tmk-op-athletics { grid-template-columns: 1fr; }
+  .tmk-op-athletics > img { height: auto; min-height: 0; }
+  .tmk-op-feature-copy { padding: 3rem 1.5rem; }
+  .tmk-op-connections { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .tmk-op-connections li { border-right: 0; padding-inline: 0; }
+  .tmk-op-mentorship-grid figure { justify-self: start; }
+}
+@media (max-width: 640px) {
+  .tmk-opportunities-page h1 { font-size: clamp(2.45rem, 8.5vw, 3.5rem); }
+  .tmk-op-hero-photos { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .tmk-op-hero-photos img { height: clamp(240px, 65vw, 360px); }
+  .tmk-op-hero-photos img:first-child { object-position: center 35%; }
+  .tmk-op-areas { grid-template-columns: 1fr; }
+  .tmk-op-area { grid-column: auto; }
+  .tmk-op-connections { grid-template-columns: 1fr; }
+  .tmk-op-connections li { padding-block: 1rem; }
+  .tmk-op-connections span { display: inline-block; margin: 0 1rem 0 0; }
+  .tmk-op-actions { flex-direction: column; align-items: flex-start; }
+}

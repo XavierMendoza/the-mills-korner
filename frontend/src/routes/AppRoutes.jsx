@@ -7,6 +7,7 @@ import ContactPage from '../pages/public/ContactPage.jsx'
 import EventDetailPage from '../pages/public/EventDetailPage.jsx'
 import EventsListPage from '../pages/public/EventsListPage.jsx'
 import HomePage from '../pages/public/HomePage.jsx'
+import DonatePage from '../pages/public/DonatePage.jsx'
 import GetInvolvedPage from '../pages/public/GetInvolvedPage.jsx'
 import ImpactPage from '../pages/public/ImpactPage.jsx'
 import NewsletterThankYouPage from '../pages/public/NewsletterThankYouPage.jsx'
@@ -39,6 +40,7 @@ function AppRoutes() {
         <Route path="/partners" element={<PartnersPage />} />
         <Route path="/events" element={<EventsListPage />} />
         <Route path="/events/:slug" element={<EventDetailPage />} />
+        <Route path="/donate" element={<DonatePage />} />
         <Route path="/get-involved" element={<GetInvolvedPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/newsletter-thank-you" element={<NewsletterThankYouPage />} />

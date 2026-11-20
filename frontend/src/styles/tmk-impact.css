@@ -1,0 +1,96 @@
+/* Impact page only. Other public pages retain their current designs. */
+.tmk-impact-page {
+  --impact-black: #141414;
+  --impact-paper: #f5f3ef;
+  --impact-red: #c92332;
+  color: var(--impact-black);
+  background: var(--impact-paper);
+}
+.tmk-impact-page :is(h1, h2, h3, a) { color: inherit; }
+.site-shell .tmk-impact-page a:focus-visible { outline: 3px solid var(--impact-red); outline-offset: 5px; box-shadow: 0 0 0 2px white; }
+.tmk-impact-page h1 { margin: 0 0 1.75rem; font-size: clamp(3.5rem, 7vw, 6.5rem); font-weight: 850; line-height: .98; letter-spacing: -.06em; }
+.tmk-impact-page h2 { margin: 0 0 1.75rem; font-size: clamp(2.3rem, 4.2vw, 4rem); font-weight: 850; line-height: 1.04; letter-spacing: -.05em; }
+.tmk-impact-page p { max-width: 60ch; }
+.tmk-impact-page figure { margin: 0; }
+.tmk-impact-page .tmk-impact-eyebrow { margin: 0 0 1.5rem; color: #a91927; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.tmk-impact-lead { font-size: clamp(1.1rem, 1.8vw, 1.4rem); line-height: 1.65; }
+.tmk-impact-section { padding-block: clamp(4rem, 7vw, 7rem); }
+.tmk-impact-page .tmk-impact-link { display: inline-block; padding-block: .6rem; font-size: .95rem; font-weight: 750; text-decoration-color: var(--impact-red); text-underline-offset: .4rem; }
+.tmk-impact-page .tmk-impact-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 1rem 1.3rem; color: white; background: var(--impact-red); font-weight: 750; line-height: 1.4; text-decoration: none; }
+.tmk-impact-page .tmk-impact-button:hover { background: #a51927; }
+.tmk-impact-hero { padding-block: clamp(3rem, 5vw, 5rem); color: white; background: var(--impact-black); }
+.tmk-impact-hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(3rem, 6vw, 6rem); }
+.tmk-impact-hero .tmk-impact-eyebrow { color: #ff8791; }
+.tmk-impact-hero h1 span { color: #ff7b88; }
+.tmk-impact-hero .tmk-impact-lead { max-width: 35ch; color: #d1d1d1; }
+.tmk-impact-hero figure { border-bottom: 5px solid var(--impact-red); }
+.tmk-impact-hero img { display: block; width: 100%; height: clamp(460px, 42vw, 620px); object-fit: cover; object-position: center top; }
+.tmk-impact-hero figcaption { padding: .75rem 1rem; color: #ccc; background: #252525; font-size: .8rem; }
+.tmk-impact-evidence { background: white; }
+.tmk-impact-metric-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; margin-top: 3rem; }
+.tmk-impact-metric-grid > article { min-width: 0; padding-block: 2rem; border-top: 1px solid #c8c8c8; }
+.tmk-impact-page .tmk-impact-value { margin: 0 0 1rem; color: #b31e2b; font-size: clamp(3.4rem, 6vw, 6rem); font-weight: 850; line-height: 1; letter-spacing: -.06em; }
+.tmk-impact-page .tmk-impact-label { margin: 0 0 .5rem; max-width: 28ch; font-size: 1.05rem; line-height: 1.3; font-weight: 750; letter-spacing: -.015em; }
+.tmk-impact-period { color: #666; font-size: .8rem; margin: 0; }
+.tmk-impact-editorial { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(3rem, 7vw, 7rem); }
+.tmk-impact-action { background: #252525; color: white; }
+.tmk-impact-action .tmk-impact-eyebrow { color: #ff8791; }
+.tmk-impact-action .tmk-impact-lead { color: #ddd; }
+.tmk-impact-action-photos { display: grid; grid-template-columns: .85fr 1.15fr; gap: 2rem; align-items: end; margin-top: 3rem; }
+.tmk-impact-action-photos img { display: block; width: 100%; height: auto; }
+.tmk-impact-action-photos figcaption { padding-top: .75rem; font-size: .8rem; color: #ccc; }
+.tmk-impact-young-people { background: var(--impact-paper); }
+.tmk-impact-support-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.tmk-impact-support-metrics .tmk-impact-figure { border-top: 4px solid var(--impact-red); padding-top: 1.5rem; min-width: 0; }
+.tmk-impact-support-metrics .tmk-impact-value { font-size: clamp(2.8rem, 4vw, 4.5rem); }
+.tmk-impact-volunteers { display: grid; grid-template-columns: 1.1fr 1fr; background: var(--impact-black); color: white; }
+.tmk-impact-volunteer-copy { padding: clamp(2rem, 5vw, 5rem); align-self: center; }
+.tmk-impact-volunteers .tmk-impact-eyebrow { color: #ff8791; }
+.tmk-impact-volunteer-copy > p:not(.tmk-impact-eyebrow) { color: #ddd; }
+.tmk-impact-volunteer-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+.tmk-impact-volunteer-metrics .tmk-impact-figure { padding-top: 1.5rem; border-top: 1px solid #666; min-width: 0; }
+.tmk-impact-volunteer-metrics .tmk-impact-value { color: #ff7b88; font-size: clamp(2.8rem, 4vw, 4.5rem); }
+.tmk-impact-volunteers .tmk-impact-period { color: #bbb; }
+.tmk-impact-volunteers figure { display: flex; flex-direction: column; }
+.tmk-impact-volunteers img { width: 100%; height: 100%; min-height: 580px; object-fit: cover; object-position: center; }
+.tmk-impact-volunteers figcaption { padding: .75rem 1rem; background: #252525; color: #ccc; font-size: .8rem; }
+.tmk-impact-partnerships { background: white; }
+.tmk-impact-partnership-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(3rem, 7vw, 7rem); align-items: center; }
+.tmk-impact-partnership-grid > .tmk-impact-figure { padding: 2rem 0; border-block: 4px solid var(--impact-red); }
+.tmk-impact-partnership-grid .tmk-impact-value { font-size: clamp(5rem, 10vw, 9rem); }
+.tmk-impact-academic { background: var(--impact-black); color: white; }
+.tmk-impact-academic-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; }
+.tmk-impact-page .tmk-impact-academic-value { margin: 0; color: #ff7b88; font-size: clamp(7rem, 19vw, 18rem); font-weight: 850; line-height: 1; letter-spacing: -.075em; }
+.tmk-impact-academic .tmk-impact-eyebrow { color: #ff8791; }
+.tmk-impact-academic h2 { max-width: 16ch; }
+.tmk-impact-closing { color: white; background: var(--impact-red); }
+.tmk-impact-closing .tmk-impact-eyebrow { color: white; }
+.tmk-impact-actions { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center; }
+.tmk-impact-closing .tmk-impact-button { background: white; color: var(--impact-black); }
+.tmk-impact-closing .tmk-impact-button:hover { background: var(--impact-paper); }
+.tmk-impact-closing .tmk-impact-link { text-decoration-color: white; }
+.site-shell .tmk-impact-closing a:focus-visible { outline-color: white; box-shadow: 0 0 0 2px var(--impact-black); }
+@media (max-width: 1200px) {
+  .tmk-impact-metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1024px) {
+  .tmk-impact-support-metrics { grid-template-columns: 1fr; }
+  .tmk-impact-hero-grid, .tmk-impact-editorial, .tmk-impact-partnership-grid { gap: 3rem; }
+  .tmk-impact-volunteer-metrics { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .tmk-impact-hero-grid, .tmk-impact-editorial, .tmk-impact-partnership-grid, .tmk-impact-volunteers, .tmk-impact-academic-grid { grid-template-columns: 1fr; }
+  .tmk-impact-hero img { height: auto; max-height: 680px; }
+  .tmk-impact-support-metrics, .tmk-impact-volunteer-metrics { grid-template-columns: 1fr 1fr; }
+  .tmk-impact-volunteers img { min-height: 0; height: auto; }
+  .tmk-impact-volunteer-copy { padding: 3rem 1.5rem; }
+  .tmk-impact-academic-value { justify-self: start; }
+}
+@media (max-width: 640px) {
+  .tmk-impact-page h1 { font-size: clamp(3rem, 11vw, 4.5rem); }
+  .tmk-impact-metric-grid, .tmk-impact-action-photos, .tmk-impact-support-metrics, .tmk-impact-volunteer-metrics { grid-template-columns: 1fr; }
+  .tmk-impact-hero-grid { gap: 2.5rem; }
+  .tmk-impact-academic-grid { gap: 2rem; }
+  .tmk-impact-page .tmk-impact-academic-value { font-size: clamp(7rem, 29vw, 12rem); }
+  .tmk-impact-actions { flex-direction: column; align-items: flex-start; }
+}
